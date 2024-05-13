@@ -5,7 +5,7 @@
  <meta charset="UTF-8">
  <title>Registration</title>
  <style>
-  body {
+   body {
    font-family: 'Arial', sans-serif;
    margin: 0;
    padding: 0;
@@ -25,7 +25,7 @@
   }
 
   h2 {
-   color: #5e057e;
+   color: #074986;
    text-align: center;
    margin-bottom: 20px;
   }
@@ -33,7 +33,7 @@
   label {
    display: block;
    margin-bottom: 8px;
-   color: #5e057e;
+   color: #074986;
   }
 
   input {
@@ -46,7 +46,7 @@
   }
 
   button {
-   background-color: #5e057e;
+  background-color: #074986;
    color: #fff;
    padding: 10px 20px;
    border: none;
@@ -67,7 +67,7 @@
   }
 
   .success-message {
-   background-color: #5e057e;
+   background-color: #074986;;
    color: #fff;
    padding: 10px;
    border-radius: 3px;
@@ -87,17 +87,22 @@
 
   <h2>Registration</h2>
   <form th:action="@{/register}" method="post" role="form" th:object="${user}">
-   <label for="fullname">FullName:</label>
-   <input th:field="*{fullname}" type="text" id="fullname" name="fullname" placeholder="Enter your FullName"
+  
+   <label for="firstName">First Name:</label>
+   <input th:field="*{firstName}" type="text" id="firstName" name="firstName" placeholder="Enter your first name"
     required>
 
-   <label for="username">Username:</label>
-   <input th:field="*{username}" type="text" id="username" name="username" placeholder="Enter your Username"
+    <label for="lastName">Last Name:</label>
+   <input th:field="*{lastName}" type="text" id="lastName" name="lastName" placeholder="Enter your last name"
+    required>
+    
+   <label for="username">Enter you Email:</label>
+   <input th:field="*{username}" type="text" id="username" name="username" placeholder="Enter your email"
     required>
 
    <label for="password">Password:</label>
    <input th:field="*{password}" type="password" id="password" name="password"
-    placeholder="Enter your Password" required>
+    placeholder="************" required>
 
    <button type="submit">Register</button>
   </form>

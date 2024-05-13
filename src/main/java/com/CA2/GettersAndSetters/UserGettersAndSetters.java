@@ -2,86 +2,53 @@ package com.CA2.GettersAndSetters;
 
 public class UserGettersAndSetters {
 
-	 private String username;
-	 private String password;
-	 private String fullname;
+    private String username;
+    private String password;
+    private String firstName;
+    private String lastName;
+    
+    public UserGettersAndSetters(String username, String password, String firstName, String lastName) {
+    	super();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
+    }
 
-	 public UserGettersAndSetters(String username, String password, String fullname) {
-	  super();
-	  this.username = username;
-	  this.password = password;
-	  this.fullname = fullname;
-	 }
+    public String getFirstName() {
+        return firstName;
+    }
 
-	 public String getUsername() {
-	  return username;
-	 }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	 public void setUsername(String username) {
-	  this.username = username;
-	 }
+    public String getLastName() {
+        return lastName;
+    }
 
-	 public String getPassword() {
-	  return password;
-	 }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	 public void setPassword(String password) {
-	  this.password = password;
-	 }
+    public String getUsername() {
+        return username;
+    }
 
-	 public String getFullname() {
-	  return fullname;
-	 }
+    public void setUsername(String email) {
+        this.username = email;
+    }
 
-	 public void setFullname(String fullname) {
-	  this.fullname = fullname;
-	 }
+    public String getPassword() {
+        return password;
+    }
 
-	 @Override
-	 public String toString() {
-	  return "UserGettersAndSetters [username=" + username + ", password=" + password + ", fullname=" + fullname + "]";
-	 }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "UserGettersAndSetters [firstName=" + firstName + ", lastName=" + lastName + ", email=" + username + ", password=" + password + "]";
+    }
 }
-/*
-public class UserGettersAndSetters {
-
- private String username;
- private String password;
- private String fullname;
-
- public UserGettersAndSetters(String username, String password, String fullname) {
-  super();
-  this.username = username;
-  this.password = password;
-  this.fullname = fullname;
- }
-
- public String getUsername() {
-  return username;
- }
-
- public void setUsername(String username) {
-  this.username = username;
- }
-
- public String getPassword() {
-  return password;
- }
-
- public void setPassword(String password) {
-  this.password = password;
- }
-
- public String getFullname() {
-  return fullname;
- }
-
- public void setFullname(String fullname) {
-  this.fullname = fullname;
- }
-
- @Override
- public String toString() {
-  return "UserDto [username=" + username + ", password=" + password + ", fullname=" + fullname + "]";
- }
-}*/
