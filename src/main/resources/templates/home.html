@@ -65,6 +65,8 @@ a{
   }
 
  </style>
+ 
+  <!--  HEADER WITH USER first name returned  -->
 </head>
 
 <body>
@@ -80,6 +82,37 @@ a{
   </div>
 
  </div>
+ 
+ 
+ <!--  HOSPITAL DATA TABLE  -->
+ <h1>Hospital Data List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Year</th>
+                <th>County</th>
+                <th>Hospital</th>
+                <th>Surgery</th>
+                <th>Cases</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="hospitalData : ${hospitalDataList}">
+                <td th:text="${hospitalData.id}"></td>
+                <td th:text="${hospitalData.year}"></td>
+                <td th:text="${hospitalData.county}"></td>
+                <td th:text="${hospitalData.hospital}"></td>
+                <td th:text="${hospitalData.surgery}"></td>
+                <td th:text="${hospitalData.cases}"></td>
+                <td>
+                    <a th:href="@{/hospitaldata/edit/{id}(id=${hospitalData.id})}">Edit</a> |
+                    <a th:href="@{/hospitaldata/delete/{id}(id=${hospitalData.id})}" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
 </body>
 
