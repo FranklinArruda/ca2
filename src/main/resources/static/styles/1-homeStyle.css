@@ -1,0 +1,597 @@
+/*********************      KEY FRAMES       **************************/
+
+/*--- TYPING ---*/
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/*--- EASY OUT ---*/
+@keyframes easeOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*--- REVEAL WIDTH (parallelogram) --- */
+@keyframes revealWidthHome {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 70%;
+  }
+}
+
+@keyframes revealFullName {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 300px;
+  }
+}
+
+/*--- MOVE UP and DOWN --- */
+@keyframes moveUpDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  } /* Changed to translateY */
+}
+
+@keyframes moveLeftRight {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-15px);
+  } /* Changed to translateY */
+}
+/*--- FADE IN --- */
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*--- PULSE --- */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/*--- SPINNING --- */
+@keyframes spinning3d {
+  from {
+    transform: rotateY(deg);
+  }
+  to {
+    transform: rotateY(400deg);
+  }
+}
+
+/* --- RESET --- */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; /* Added */
+  list-style: none;
+}
+
+/* --- GLOBAL --- */
+a,
+.button,
+.box,
+.logo,
+button {
+  font-family: "Sansation", sans-serif;
+  font-weight: 300;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+section {
+  min-height: 100vh;
+  width: 100%;
+  padding: 5% 9%;
+  box-sizing: border-box; /* Added */
+  overflow-x: hidden; /* Added */
+}
+
+.section-title {
+  margin-bottom: 5px;
+  color: var(--textColor);
+  font-size: 30px;
+}
+
+.border-bottom {
+  border-radius: 5px;
+  margin-top: 1rem;
+  border-bottom: 2px solid var(--backgroundColor);
+  width: 300px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.section-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/*---------  TRANSITIONING  ------------*/
+i,
+a:hover,
+.button {
+  transition: all 300ms ease-out;
+  border-radius: 5px;
+}
+
+/*---  COLORS  ---*/
+:root {
+  --primary: #053249;
+  --backgroundColor: #ece5e5;
+  --borderRadius: 5px;
+  --textColor: rgb(70, 69, 69);
+  --btnColor: #0852a1;
+  --btnFontSize: 15px;
+  --borderBottom: rgb(207, 207, 204);
+  --headerColor: #f3eeee;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/*------ njn ------*/
+
+/*********************      HOME PAGE HTML       **************************/
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--backgroundColor);
+  margin: 0;
+  padding: 0;
+}
+
+/* --- HEADER ---*/
+.header-container {
+  display: flex; /* Use flexbox */
+  justify-content: space-between;
+  align-items: center; /* Vertically center items */
+  background-color: var(--headerColor);
+  box-shadow: 0px 0px 10px var(--textColor);
+  height: 100px;
+  padding: 30px 5%;
+}
+
+.header-container .logo {
+  font-size: 10px;
+}
+
+.logo h1 {
+  position: relative;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: lighter;
+  padding: 10px;
+  color: var(--textColor);
+  border-left: 1px solid var(--textColor);
+  border-radius: 50px;
+  animation: pulse 2s infinite;
+}
+
+.logo h1:hover {
+  animation-play-state: paused;
+}
+
+.logo h1 span {
+  padding-left: 5px;
+  font-weight: 600;
+}
+
+.logo h1::after {
+  content: "";
+  height: 100%;
+  width: 0; /* Initially, the width is 0 */
+  background: var(--textColor);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1; /* Ensure the background is behind the text */
+  transition: width 0.5s;
+  border-radius: 50px;
+}
+
+.logo h1:hover::after {
+  width: 100%;
+}
+
+.logo h1:hover {
+  color: white;
+}
+
+.links li {
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.links {
+  transition: margin-top 0.3s;
+}
+.links a {
+  margin: 0 10px;
+  color: var(--textColor);
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  font-size: var(--btnFontSize);
+  text-transform: uppercase;
+  font-size: small;
+}
+
+.links a::after {
+  content: "";
+  height: 3px;
+  width: 0;
+  background: var(--btnColor);
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  transition: width 0.5s;
+}
+
+.links a:hover::after {
+  width: 100%;
+}
+
+/* --- NAVIGATION BAR ---*/
+
+.nav-bar-button a {
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.nav-bar-button a {
+  margin-left: 20px;
+  animation: spinning3d 2s linear;
+  transform-style: preserve-3d;
+}
+
+.nav-bar-button a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-bar-button a {
+  font-size: var(--btnFontSize);
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: lighter;
+  border: 1px solid var(--btnColor);
+  color: var(--btnColor);
+}
+
+.active.button {
+  background-color: var(--btnColor);
+  color: white;
+}
+
+.active.home {
+  color: var(--btnColor);
+}
+.nav-bar-button a:hover {
+  color: var(--btnColor);
+  background-color: var(--btnColor);
+  color: white;
+  box-shadow: 2px 2px 10px var(--btnColor);
+  transition: all 300ms ease-out;
+}
+
+/* --- HERO PAGE ---*/
+.hero-page-parallelogram {
+  position: absolute;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  overflow: hidden;
+  width: 75%;
+  color: #fff;
+  text-align: center;
+  background-color: var(--btnColor);
+  display: flex;
+  z-index: -1;
+  animation: revealWidthHome 1s linear;
+  transform: skew(-0deg);
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+
+  /*IT ADDS a box shadow to my parallelogram*/
+  box-shadow: inset -1px -1px 1px 1px var(--primary),
+    inset -5px 5px 20px var(--primary);
+}
+
+.hero-content {
+  animation: fadeInLeft 2s;
+  display: none;
+}
+
+.hero-content h2 {
+  font-size: 40px;
+}
+
+.hero-content h2 {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing;
+  animation-duration: 1.5s;
+  animation-timing-function: steps(100, end);
+  animation-fill-mode: forwards;
+}
+
+/* --- SECTION (STUDENT INFO) ---*/
+
+/*
+.hover-button {
+  background-color: #053249;
+  width: 300px;
+}
+*/
+
+.full-name-container {
+  margin-top: 1rem;
+}
+
+.full-name.button {
+  margin-top: 30px;
+  background-color: var(--textColor);
+  color: white;
+  padding: 10px;
+}
+
+.name {
+  display: none;
+  color: var(--textColor);
+
+  border-radius: var(--borderRadius);
+  box-shadow: 2px 2px 10px var(--textColor);
+  position: absolute;
+
+  font-size: small;
+  animation: revealFullName 1s;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.name ul,
+.name li,
+.name span,
+.name p {
+  list-style: none;
+  text-align: left;
+  width: 300px;
+  padding: 3px;
+  margin: 0;
+  color: var(--textColor);
+  animation: fadeInLeft 2.5s;
+}
+
+.name span {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.full-name.button:hover {
+  background-color: rgb(44, 44, 44);
+  color: white;
+  padding: 10px;
+  box-shadow: 2px 2px 10px var(--textColor);
+}
+
+/*hhides in js*/
+.name.hide {
+  display: none;
+}
+
+/* display none*/
+.name.show {
+  display: block;
+}
+
+/* --- SECTION (PROJECT OVERVIEW) ---*/
+
+.project-details {
+  display: flex;
+  justify-content: space-between;
+
+  gap: 100px; /* Add space between the boxes */
+  margin-top: 10rem;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.project-details .box {
+  position: relative;
+  width: 80%;
+  height: 80%;
+  box-shadow: 2px 2px 10px var(--textColor);
+  transition: transform 0.5s ease; /* Smooth transition on hover */
+}
+
+.project-details .box img {
+  width: 450px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-details .box .box-content {
+  background-color: var(--textColor);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  opacity: 0; /* Initially hide content */
+  transition: opacity 0.5s ease; /* Smooth transition on hover */
+  padding: 10px;
+}
+
+.project-details .box .box-content h4,
+p {
+  text-align: center;
+  margin-top: 50px;
+  color: white;
+  line-height: 30px;
+}
+
+.project-details .box:hover {
+  transform: scale(0.9);
+}
+
+.project-details .box:hover .box-content {
+  opacity: 1; /* Show content on hover */
+}
+
+/* --- FOOTER ---*/
+footer {
+  position: relative;
+  height: 300px;
+  background-color: var(--btnColor);
+
+  /*IT ADDS a box shadow to my parallelogram*/
+  box-shadow: inset -1px -1px 1px 1px var(--primary),
+    inset -5px 5px 20px var(--primary);
+
+  border-top-right-radius: 300px;
+}
+
+.footer-content {
+  position: relative;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  width: 25%;
+  text-align: center;
+}
+
+.footer-content .design {
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  margin-bottom: -30px;
+}
+
+.footer-content .copy-rights {
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.footer-content .design i,
+.footer-content .copy-rights i {
+  padding-left: 0.5rem;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.footer-content .icons {
+  width: 100%;
+  height: 50px;
+}
+
+.footer-content .icons a i {
+  font-size: 24px;
+  margin: 1rem;
+  color: black;
+}
+
+.footer-content .icons a i:hover {
+  transition: 0.2s;
+  color: white;
+  border-radius: 50%;
+  box-shadow: 5px 4px 10px var(--primary);
+}
+
+/* SCROLL UP BUTTON */
+
+.scrollUpBtn {
+  position: fixed;
+  bottom: 250px;
+  right: 40px;
+  width: 35px; /* Set width to a fixed size */
+  height: 35px; /* Set height to a fixed size */
+  background-color: rgb(104, 101, 101);
+  border-radius: 50%; /* Make it circular */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  animation: moveUpDown 2s infinite;
+}
+
+.scrollUpBtn a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit; /* Inherit color from the parent */
+}
+
+.scrollUpBtn i {
+  font-size: 20px;
+  color: rgb(199, 198, 198);
+}
+
+/* Hover effect */
+.scrollUpBtn:hover {
+  background-color: var(--btnColor); /* Background color on hover */
+  box-shadow: 2px 2px 10px var(--btnColor);
+}
+
+.scrollUpBtn:hover i {
+  color: white; /* Icon color on hover */
+}
+
+.scrollUpBtn.show {
+  display: block;
+}
+
+.scrollUpBtn.hide {
+  display: none;
+}
+
+.scrollUpBtn:hover {
+  animation-play-state: paused;
+}
+
+
+

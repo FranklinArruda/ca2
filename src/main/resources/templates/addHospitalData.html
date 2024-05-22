@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Hospital Data</title>
+</head>
+
+<body>
+    <h1>Add Hospital Data</h1>
+   
+    <!-- Form to add hospital data -->
+    <form th:action="@{/hospitaldata/add}" method="post"> <!-- Updated action URL -->
+        <!-- Form fields for hospital data -->
+        <div>
+            <label for="year">Year:</label>
+            <input type="text" id="year" name="year">
+        </div>
+        <div>
+            <label for="county">County:</label>
+            <input type="text" id="county" name="county">
+        </div>
+        <div>
+            <label for="hospital">Hospital:</label>
+            <input type="text" id="hospital" name="hospital">
+        </div>
+        <div>
+            <label for="surgery">Surgery:</label>
+            <input type="text" id="surgery" name="surgery">
+        </div>
+        <div>
+            <label for="cases">Cases:</label>
+            <input type="text" id="cases" name="cases">
+        </div>
+        <button type="submit">Add Hospital Data</button>
+    </form>
+</body>
+
+</html>

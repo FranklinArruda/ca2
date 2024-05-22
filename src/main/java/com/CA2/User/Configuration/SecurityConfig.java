@@ -28,15 +28,26 @@ public class SecurityConfig {
      http.csrf().disable()
              .authorizeHttpRequests((authorize) ->
              authorize
+             
                  .requestMatchers("/register").permitAll()
                  .requestMatchers("/home").permitAll()
+                 .requestMatchers("/welcome").permitAll()
+                 .requestMatchers("/").permitAll() // Ensure root URL is permitted
+                 .requestMatchers("addHospitalData").permitAll() // Ensure root URL is permitted
+                 
+                .requestMatchers("/styles/**").permitAll()
+         		.requestMatchers("/images/**").permitAll()
+         		.requestMatchers("/js/**").permitAll()
+         		
+         		.requestMatchers("/dashboard").authenticated() // Ensure only authenticated users can access the dashboard
+
           )
           
              .formLogin((form) ->
                  form
                      .loginPage("/login")
                      .loginProcessingUrl("/login")
-                     .defaultSuccessUrl("/home", true)
+                     .defaultSuccessUrl("/dashboard", true)
                      .permitAll()
              )
              
@@ -47,6 +58,8 @@ public class SecurityConfig {
                      .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                      .logoutSuccessUrl("/login?logout")
                      .permitAll()
+                     
+                     
              );
 
      return http.build();

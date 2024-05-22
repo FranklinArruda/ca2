@@ -1,0 +1,373 @@
+/*********************      KEY FRAMES       **************************/
+
+/*--- TYPING ---*/
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/*--- EASY OUT ---*/
+@keyframes easeOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*--- REVEAL WIDTH (parallelogram) --- */
+@keyframes revealWidthHome {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 85%;
+  }
+}
+
+@keyframes revealFullName {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 300px;
+  }
+}
+
+/*--- MOVE UP and DOWN --- */
+@keyframes moveUpDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  } /* Changed to translateY */
+}
+
+@keyframes moveLeftRight {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-15px);
+  } /* Changed to translateY */
+}
+/*--- FADE IN --- */
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*--- PULSE --- */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/*--- SPINNING --- */
+@keyframes spinning3d {
+  from {
+    transform: rotateY(deg);
+  }
+  to {
+    transform: rotateY(400deg);
+  }
+}
+
+/*--- EASY OUT ---*/
+@keyframes easeOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* --- RESET --- */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; /* Added */
+  list-style: none;
+}
+
+/* --- GLOBAL --- */
+a,
+.button,
+.box,
+.logo,
+button {
+  font-family: "Sansation", sans-serif;
+  font-weight: 300;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/*---------  TRANSITIONING  ------------*/
+i,
+a:hover,
+.button {
+  transition: all 300ms ease-out;
+  border-radius: 5px;
+}
+
+/*---  COLORS  ---*/
+:root {
+  --primary: #053249;
+  --backgroundColor: #ece5e5;
+  --borderRadius: 5px;
+  --textColor: rgb(70, 69, 69);
+  --btnColor: #0852a1;
+  --btnFontSize: 15px;
+  --borderBottom: rgb(207, 207, 204);
+  --headerColor: #f3eeee;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--backgroundColor);
+  margin: 0;
+  padding: 0;
+}
+
+/*
+.dashboard-header{
+  background-color: var(--headerColor);
+  border-bottom: 1px solid var(--borderBottom);
+width: 100%;
+display: block;
+color: white;
+padding: 10px;
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 10px;
+}
+*/
+
+.header-container {
+  display: flex; /* Use flexbox */
+  justify-content: space-between;
+  align-items: center; /* Vertically center items */
+  background-color: var(--headerColor);
+  height: 100px;
+  padding: 30px 5%;
+  box-shadow: 0px 0px 10px var(--textColor);
+}
+
+/* Optional: Adjust styles for individual containers */
+.logo img {
+  width: 150px; /* Ensure logo image doesn't exceed container width */
+}
+
+.welcome-message-container {
+  text-align: center;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+.welcome-message {
+  margin: 0; /* Remove default margin to avoid unexpected spacing */
+}
+.welcome-message-container h1 {
+  color: var(--textColor);
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+.welcome-message-container h2 {
+  color: var(--textColor);
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+.welcome-message-container h2 {
+  color: var(--textColor);
+  font-size: 15px;
+  text-transform: uppercase;
+  padding-top: 15px; /* Apply padding to the top */
+  padding-bottom: 15px; /* Apply padding to the bottom */
+}
+
+/*logout button*/
+span a {
+  padding: 10px;
+  color: var(--btnColor);
+  font-size: var(--btnFontSize);
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: lighter;
+  border: 1px solid var(--btnColor);
+  color: var(--btnColor);
+}
+
+span a:hover {
+  color: var(--btnColor);
+  background-color: var(--btnColor);
+  color: white;
+  box-shadow: 2px 2px 10px var(--btnColor);
+}
+
+.welcome-message {
+  padding-top: 10px;
+  color: var(--textColor);
+  font-size: 25px;
+  text-transform: uppercase;
+}
+.dashboard-user-container {
+  margin-top: 40px;
+}
+
+.dashboard-user-container h2 {
+  color: var(--textColor);
+  font-size: 15px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--borderBottom);
+  padding-bottom: 5px;
+}
+
+/*TABLE-CONTAINER*/
+
+.table-container {
+  padding: 15px;
+  position: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 85%;
+  height: 400px;
+  margin: 30px auto;
+  animation: revealWidthHome 1.5s;
+}
+
+.table-container h1 {
+  color: var(--backgroundColor);
+  font-size: 25px;
+  text-transform: uppercase;
+
+  font-size: 16px;
+  padding: 5px;
+  border-radius: var(--borderRadius);
+  letter-spacing: 5px;
+  background-color: var(--btnColor);
+}
+
+table {
+  margin-top: 30px;
+  width: 100%;
+  padding: 10px;
+  box-shadow: 2px 2px 10px var(--textColor);
+  background-color: var(--headerColor);
+  border-radius: var(--borderRadius);
+}
+
+table th {
+  color: var(--btnColor);
+  padding: 10px;
+  color: var(--textColor);
+}
+
+table tbody tr td {
+  background-color: var(--backgroundColor);
+  border-radius: 5px;
+  padding: 10px 5px 10px 5px;
+  border: 1px solid var(--borderBottom);
+  color: var(--textColor);
+}
+
+/*hides tbody and appears after 5 seconds with JS*/
+.table-body {
+  display: none;
+  animation: easeOut 600ms; /* Adjust the duration as needed */
+}
+
+/*EDIT + DELETEBUTTON*/
+.delete.button,
+.edit.button {
+  padding: 10px;
+  color: var(--btnColor);
+  font-size: var(--btnFontSize);
+  padding: 5px 20px;
+  border-radius: 5px;
+  font-weight: lighter;
+  border: 1px solid var(--btnColor);
+  color: var(--btnColor);
+}
+
+.delete.button:hover,
+.edit.button:hover {
+  color: white; /* This will override the initial color */
+  background-color: var(--btnColor);
+  box-shadow: 2px 2px 10px var(--btnColor);
+}
+
+/* Container for scrollable table */
+.scrollable-table {
+  max-height: 400px; /* Adjust the height as needed */
+  overflow-y: auto;
+  overflow-x: hidden; /* Prevent horizontal scrolling if not needed */
+}
+
+.border-bottom {
+  margin-top: 15px;
+  border-bottom: 2px solid var(--borderBottom);
+}
+
+/* WebKit Scrollbar Styles (Chrome, Safari) */
+/* Width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--textColor);
+  border-radius: var(--borderRadius);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--btnColor);
+  border-radius: var(--borderRadius);
+  height: 75px;
+  border: 2px solid var(--btnColor);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--btnColor);
+}
+
+/* Firefox Scrollbar Styles */
+.scrollable-table {
+  scrollbar-width: thin; /* Makes the scrollbar thinner */
+  scrollbar-color: var(--btnColor) var(--textColor); /* First color is the thumb, second is the track */
+}
+
+/* Ensure smooth transition for Firefox */
+.scrollable-table {
+  overflow-y: auto;
+}

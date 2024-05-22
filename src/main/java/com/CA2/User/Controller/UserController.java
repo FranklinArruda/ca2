@@ -28,7 +28,7 @@ public class UserController {
   this.userService = userService;
  }
 
- @GetMapping("/home")
+ @GetMapping("/dashboard")
  public String home(Model model, Principal principal) {
   
 	 //-------------------------------------------------------------------
@@ -41,32 +41,45 @@ public class UserController {
 	 
 	 UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
   model.addAttribute("userdetail", userDetails);
-  return "home";
+  return "dashboard";
  }
 
+ // Map the root URL ("/") to the register page
+ @GetMapping("/")
+ public String defaultPage(Model model) {
+     return "home"; // Assuming "landpage" is the name of your landing page HTML file
+ }
  @GetMapping("/login")
  public String login(Model model, UserGettersAndSetters userGettersAdnSetters) {
 
   model.addAttribute("user", userGettersAdnSetters);
   return "login";
  }
-
+  
  @GetMapping("/register")
  public String register(Model model, UserGettersAndSetters userGettersAdnSetters) {
-  model.addAttribute("user", userGettersAdnSetters);
+ model.addAttribute("user", userGettersAdnSetters);
   return "register";
  }
+ 
+ 
 
  @PostMapping("/register")
- 
  public String registerSava(@ModelAttribute("user") UserGettersAndSetters userGettersAdnSetters, Model model) {
-  User user = userService.findByUsername(userGettersAdnSetters.getUsername());
+  User user = userService.findByUsername(userGettersAdnSetters.getFirstName());
   if (user != null) {
    model.addAttribute("Userexist", user);
    return "register";
   }
   
+  
   userService.save(userGettersAdnSetters);
   return "redirect:/register?success";
  }
+ /*
+ @GetMapping("/")
+ public String defaultPage() {
+     return "addHospitalData"; // Loads welcome.html when accessing http://localhost:8080
+ }*/
+
 }

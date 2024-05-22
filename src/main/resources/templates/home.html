@@ -1,119 +1,146 @@
 <!DOCTYPE html>
-<html>
 
-<head>
- <meta charset="UTF-8">
- <title>Home Page</title>
- <style>
-  body {
-  font-family: 'Arial', sans-serif;
-   background-color: #f5f5f5;
-   margin: 0;
-   padding: 0;
-  }
+<html lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+>
 
-  .dashboard {
-   background-color: #074986;
-   color: #fff;
-   padding: 40px;
-   text-align: center;
-  }
 
-  .dashboard_title {
-   font-size: 24px;
-   margin-top: 0;
-  }
 
-  .dashboard_user {
-   margin-top: 20px;
-  }
-
-  .dashboard_user_name {
-   font-size: 18px;
-   color: #ffffff;
-  }
-
-  .span-text {
-  text-align: right;
-  
-}
-a{
-    padding: 8px;
-    border-radius: 5px;
-    transition: background-color 0.5s;
-    font-weight: 100;
-    cursor: pointer;
-    text-decoration: none;
-    
-}
-
-.span-text span {
-  padding: 5px; 
-  display: inline-block; 
-  
-}
-
-.span-text a:hover {
-            background-color: white; /* Background color on hover */
-            color:#074986; /* Text color on hover */
-  
-        }
-        
-        .span-text a {
-   color: white;
-   text-decoration: none;
-  }
-
- </style>
- 
-  <!--  HEADER WITH USER first name returned  -->
-</head>
-
-<body>
- <div class="dashboard">
-  <h1 class="dashboard_title">Welcome to the Dashboard </h1>
-  <div class="dashboard_user">
-   <h2 th:text="${userdetail.firstname}" class="dashboard_user_name"></h2> <!-- THIS LINE INTERACTS WITH CUSTOM USER DETAIL CLASS
-   AND RETURN THE FIRST NAME... if first name is wrong will be blank page -->
-  </div>
- 
-  <div class="span-text">
-   <span sec:authorize="isAuthenticated"><a th:href="@{/logout}">Logout</a></span>
-  </div>
-
- </div>
- 
- 
- <!--  HOSPITAL DATA TABLE  -->
- <h1>Hospital Data List</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Year</th>
-                <th>County</th>
-                <th>Hospital</th>
-                <th>Surgery</th>
-                <th>Cases</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="hospitalData : ${hospitalDataList}">
-                <td th:text="${hospitalData.id}"></td>
-                <td th:text="${hospitalData.year}"></td>
-                <td th:text="${hospitalData.county}"></td>
-                <td th:text="${hospitalData.hospital}"></td>
-                <td th:text="${hospitalData.surgery}"></td>
-                <td th:text="${hospitalData.cases}"></td>
-                <td>
-                    <a th:href="@{/hospitaldata/edit/{id}(id=${hospitalData.id})}">Edit</a> |
-                    <a th:href="@{/hospitaldata/delete/{id}(id=${hospitalData.id})}" onclick="return confirm('Are you sure?')">Delete</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-</body>
-
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Project Presentation</title>
+      <!-- <link rel="stylesheet" th:href="@{/src/main/resources/static/styles/1-homeStyle.css}"> -->
+      
+      <link th:href="@{/styles/1-homeStyle.css}" rel="stylesheet"/>
+      
+      <!-- Font Awesome Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   </head>
+   <body>
+      <!-- HEADER -->
+      <header>
+         <div class="header-container">
+            <div class="logo">
+               <h1>Comercial Solutions Design <span>| PROJECT YEAR 3</span></h1>
+            </div>
+            <nav class="links">
+               <ul>
+                  <li><a href="#student-info">Student Information</a></li>
+                  <li><a href="#project-overview">Project Overview</a></li>
+                  <li> <a href="#home" class="active home">Home</a></li>
+               </ul>
+            </nav>
+            <div class="nav-bar-button">  
+               <a th:href="@{/register}" class="button">Sign Up</a>
+               <a th:href="@{/login}" class="active button">Login</a> 
+               >
+            </div>
+         </div>
+      </header>
+      <!-- SECTION (Hero Page parallelogram) -->
+      <section class="hero-page" id="home">
+         <div class="hero-page-parallelogram">
+            <div class="hero-content" id="hero-content">
+               <h2>Welcome to My Project Presentation</h2>
+               <p>Explore the details of my Spring Boot and Hadoop project</p>
+            </div>
+         </div>
+      </section>
+      <!-- SECTION (Student Info) -->
+      <section class="student-info-container section" id="student-info">
+         <div class="section-container">
+            <h3 class="section-title">Student Information</h3>
+            <div class="border-bottom student-info"></div>
+            <div class="full-name-container">
+               <div class="full-name button">Hover here see my Full Name</div>
+               <div class="name">
+                  <ul>
+                     <li>
+                        <p>
+                           <span>Full name:</span>Franklin Arruda Cirino
+                        </p>
+                     </li>
+                     <li>
+                        <p>
+                           <span>Student No.:</span>2021368
+                        </p>
+                     </li>
+                     <li>
+                        <p>
+                           <span>Module:</span>Comercial Solutions Deisgn
+                        </p>
+                     </li>
+                     <li>
+                        <p>
+                           <span>Email:</span>2021368@student.cct.ie
+                        </p>
+                     </li>
+                     <li>
+                        <p>
+                           <span>Lecturer:</span>David McQuaid
+                        </p>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </section>
+      
+      <!-- SECTION (Project Info) -->
+      <section class="project-info section" id="project-overview">
+         <div class="section-container">
+            <div class="project-overview-header">
+               <h3 class="section-title">Project Overview</h3>
+               <div class="border-bottom project"></div>
+            </div>
+            <div class="project-details">
+               
+               <!-- CARDS -->
+               <div class="box">
+                  <img src="@{/images/spring.png}" alt="spring-boot-image-wallpaper">
+                  <div class="box-content">
+                     <h4>Spring Boot</h4>
+                     <p>Implemented a web application using the Spring Framework that includes a login system, CRUD functionality, and backend form validation. The application connects to a NoSQL database for data storage and processing.</p>
+                  </div>
+               </div>
+               <div class="box">
+                  <img src="@{/images/ubuntu.png}" alt="ubuntu-image-wallpaper">
+                   
+                  <div class="box-content">
+                     <h4>Ubuntu</h4>
+                     <p>Set up a Hadoop distributed data processing environment on Ubuntu, utilized Hadoop MapReduce for data processing, and stored data on the Hadoop Distributed File System (HDFS). Benchmarked database performance using YCSB on this platform.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      
+      <!-- footer section -->
+      <footer id="footer">
+         <div class="footer-content">
+            <div class="design">
+               <p>Designed by <span>Franklin</span><i class="fa-brands fa-figma"></i></p>
+            </div>
+            <div class="copy-rights">
+               <p>Copyright &copy; All Rights Reserved.</p>
+            </div>
+            <div class="foot icons">
+               <a href="#"><i class="fa-regular fa-envelope"></i></a>
+               <a href="https://github.com/FranklinArruda" target="_blank"><i class="fa-brands fa-github"></i></a>
+               <a href="https://www.linkedin.com/in/franklin-arruda-6a679b194/" target="_blank"><i
+                  class="fa-brands fa-linkedin"></i></a>
+            </div>
+         </div>
+      </footer>
+      
+      <!-- scroll up button -->
+      <div class="scrollUpBtn animation-style">
+         <a href="#home"><i class="fa-solid fa-arrow-up"></i></a>
+      </div>
+      
+      <!-- Java Script -->
+      <script src="@{/js/index.js}"></script>
+       
+   </body>
 </html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en"
+   xmlns:th="http://www.thymeleaf.org"
+   >
+   <head>
+      <meta charset="UTF-8">
+      <title>Dashboard</title>
+      <link rel="stylesheet" href="/styles/4-dashboard.css">
+      
+      <!--  HEADER WITH USER first name returned  -->
+   </head>
+   <body>
+      <div class="header-container">
+         <div class="logo">
+            <img src="/images/CCT-logo-no-background-1024x197.webp" alt="">
+         </div>
+         <div class="welcome-message-container">
+            <h1 class="welcome-message">Welcome to the Dashboard</h1>
+            <h2 th:text="${userdetail.firstname}" class="dashboard-user-name"></h2>
+         </div>
+         <div class="button-container">
+            <span sec:authorize="isAuthenticated">
+            <a th:href="@{/logout}" class="logout button">Logout</a>
+            </span>
+         </div>
+      </div>
+      <!--HOSPITAL DATA TABLE  -->
+      <div class="table-container">
+         <h1 class="table-title">Hospital Data List</h1>
+         <div class="scrollable-table">
+            <table>
+               <thead>
+                  <tr>
+                     <th>ID</th>
+                     <th>Year</th>
+                     <th>County</th>
+                     <th>Hospital</th>
+                     <th>Surgery</th>
+                     <th>Cases</th>
+                     <th>Actions</th>
+                  </tr>
+               </thead>
+             
+  <tbody class="table-body">
+    <tr>
+        <td>003</td>
+        <td>1993</td>
+        <td>SP-brffffffffasil</td>
+        <td>Campo Lnnnnnnnn impo</td>
+        <td>Neck-sufffgfffffffffffery</td>
+        <td>3</td>
+        <td>
+            <a href="/hospitaldata/edit/003" class="edit button">Edit</a>
+            <a href="/hospitaldata/delete/003" class="delete button" onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+    </tr>
+    <tr>
+        <td>003</td>
+        <td>1993</td>
+        <td>SP-brffffffffasil</td>
+        <td>Campo Lnnnnnnnn impo</td>
+        <td>Neck-sufffgfffffffffffery</td>
+        <td>3</td>
+        <td>
+            <a href="/hospitaldata/edit/003" class="edit button">Edit</a>
+            <a href="/hospitaldata/delete/003" class="delete button" onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+    </tr>
+    <tr>
+        <td>003</td>
+        <td>1993</td>
+        <td>SP-brffffffffasil</td>
+        <td>Campo Lnnnnnnnn impo</td>
+        <td>Neck-sufffgfffffffffffery</td>
+        <td>3</td>
+        <td>
+            <a href="/hospitaldata/edit/003" class="edit button">Edit</a>
+            <a href="/hospitaldata/delete/003" class="delete button" onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+    </tr>
+    <tr>
+        <td>003</td>
+        <td>1993</td>
+        <td>SP-brffffffffasil</td>
+        <td>Campo Lnnnnnnnn impo</td>
+        <td>Neck-sufffgfffffffffffery</td>
+        <td>3</td>
+        <td>
+            <a href="/hospitaldata/edit/003" class="edit button">Edit</a>
+            <a href="/hospitaldata/delete/003" class="delete button" onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+    </tr>
+    <tr>
+        <td>003</td>
+        <td>1993</td>
+        <td>SP-brffffffffasil</td>
+        <td>Campo Lnnnnnnnn impo</td>
+        <td>Neck-sufffgfffffffffffery</td>
+        <td>3</td>
+        <td>
+            <a href="/hospitaldata/edit/003" class="edit button">Edit</a>
+            <a href="/hospitaldata/delete/003" class="delete button" onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+    </tr>
+    <tr>
+        <td>003</td>
+        <td>1993</td>
+        <td>SP-brffffffffasil</td>
+        <td>Campo Lnnnnnnnn impo</td>
+        <td>Neck-sufffgfffffffffffery</td>
+        <td>3</td>
+        <td>
+            <a href="/hospitaldata/edit/003" class="edit button">Edit</a>
+            <a href="/hospitaldata/delete/003" class="delete button" onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+    </tr>
+    <tr>
+        <td>003</td>
+        <td>1993</td>
+        <td>SP-brffffffffasil</td>
+        <td>Campo Lnnnnnnnn impo</td>
+        <td>Neck-sufffgfffffffffffery</td>
+        <td>3</td>
+        <td>
+            <a href="/hospitaldata/edit/003" class="edit button">Edit</a>
+            <a href="/hospitaldata/delete/003" class="delete button" onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+    </tr>
+    <tr>
+        <td>003</td>
+        <td>1993</td>
+        <td>SP-brffffffffasil</td>
+        <td>Campo Lnnnnnnnn impo</td>
+        <td>Neck-sufffgfffffffffffery</td>
+        <td>3</td>
+        <td>
+            <a href="/hospitaldata/edit/003" class="edit button">Edit</a>
+            <a href="/hospitaldata/delete/003" class="delete button" onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+    </tr>
+    <tr>
+        <td>003</td>
+        <td>1993</td>
+        <td>SP-brffffffffasil</td>
+        <td>Campo Lnnnnnnnn impo</td>
+        <td>Neck-sufffgfffffffffffery</td>
+        <td>3</td>
+        <td>
+            <a href="/hospitaldata/edit/003" class="edit button">Edit</a>
+            <a href="/hospitaldata/delete/003" class="delete button" onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+    </tr>
+    <tr>
+        <td>003</td>
+        <td>1993</td>
+        <td>SP-brffffffffasil</td>
+        <td>Campo Lnnnnnnnn impo</td>
+        <td>Neck-sufffgfffffffffffery</td>
+        <td>3</td>
+        <td>
+            <a href="/hospitaldata/edit/003" class="edit button">Edit</a>
+            <a href="/hospitaldata/delete/003" class="delete button" onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+    </tr>
+</tbody>
+                <!-- <tbody class="table-body">
+                  <tr th:each="hospitalData : ${hospitalDataList}">
+                     <td th:text="${hospitalData.id}">003</td>
+                     <td th:text="${hospitalData.year}">1993</td>
+                     <td th:text="${hospitalData.county}">SP-brffffffffasil</td>
+                     <td th:text="${hospitalData.hospital}">Campo Lnnnnnnnn
+                        impo
+                     </td>
+                     <td th:text="${hospitalData.surgery}">Neck-sufffgfffffffffffery</td>
+                     <td th:text="${hospitalData.cases}">3</td>
+                     <td>
+                        <a th:href="@{/hospitaldata/edit/{id}(id=${hospitalData.id})}" class="edit button">Edit</a> 
+                        <a th:href="@{/hospitaldata/delete/{id}(id=${hospitalData.id})}" class="delete button" onclick="return confirm('Are you sure?')">Delete</a>
+                     </td>
+                  </tr>
+                  <tr th:each="hospitalData : ${hospitalDataList}">
+                     <td th:text="${hospitalData.id}">003</td>
+                     <td th:text="${hospitalData.year}">1993</td>
+                     <td th:text="${hospitalData.county}">SP-brffffffffasil</td>
+                     <td th:text="${hospitalData.hospital}">Campo Lnnnnnnnn
+                        impo
+                     </td>
+                     <td th:text="${hospitalData.surgery}">Neck-sufffgfffffffffffery</td>
+                     <td th:text="${hospitalData.cases}">3</td>
+                     <td>
+                        <a th:href="@{/hospitaldata/edit/{id}(id=${hospitalData.id})}" class="edit button">Edit</a> 
+                        <a th:href="@{/hospitaldata/delete/{id}(id=${hospitalData.id})}" class="delete button" onclick="return confirm('Are you sure?')">Delete</a>
+                     </td>
+                  </tr>
+                  <tr th:each="hospitalData : ${hospitalDataList}">
+                     <td th:text="${hospitalData.id}">003</td>
+                     <td th:text="${hospitalData.year}">1993</td>
+                     <td th:text="${hospitalData.county}">SP-brffffffffasil</td>
+                     <td th:text="${hospitalData.hospital}">Campo Lnnnnnnnn
+                        impo
+                     </td>
+                     <td th:text="${hospitalData.surgery}">Neck-sufffgfffffffffffery</td>
+                     <td th:text="${hospitalData.cases}">3</td>
+                     <td>
+                        <a th:href="@{/hospitaldata/edit/{id}(id=${hospitalData.id})}" class="edit button">Edit</a> 
+                        <a th:href="@{/hospitaldata/delete/{id}(id=${hospitalData.id})}" class="delete button" onclick="return confirm('Are you sure?')">Delete</a>
+                     </td>
+                  </tr>
+                  <tr th:each="hospitalData : ${hospitalDataList}">
+                     <td th:text="${hospitalData.id}">003</td>
+                     <td th:text="${hospitalData.year}">1993</td>
+                     <td th:text="${hospitalData.county}">SP-brffffffffasil</td>
+                     <td th:text="${hospitalData.hospital}">Campo Lnnnnnnnn
+                        impo
+                     </td>
+                     <td th:text="${hospitalData.surgery}">Neck-sufffgfffffffffffery</td>
+                     <td th:text="${hospitalData.cases}">3</td>
+                     <td>
+                        <a th:href="@{/hospitaldata/edit/{id}(id=${hospitalData.id})}" class="edit button">Edit</a> 
+                        <a th:href="@{/hospitaldata/delete/{id}(id=${hospitalData.id})}" class="delete button" onclick="return confirm('Are you sure?')">Delete</a>
+                     </td>
+                  </tr>
+                  <tr th:each="hospitalData : ${hospitalDataList}">
+                     <td th:text="${hospitalData.id}">003</td>
+                     <td th:text="${hospitalData.year}">1993</td>
+                     <td th:text="${hospitalData.county}">SP-brffffffffasil</td>
+                     <td th:text="${hospitalData.hospital}">Campo Lnnnnnnnn
+                        impo
+                     </td>
+                     <td th:text="${hospitalData.surgery}">Neck-sufffgfffffffffffery</td>
+                     <td th:text="${hospitalData.cases}">3</td>
+                     <td>
+                        <a th:href="@{/hospitaldata/edit/{id}(id=${hospitalData.id})}" class="edit button">Edit</a> 
+                        <a th:href="@{/hospitaldata/delete/{id}(id=${hospitalData.id})}" class="delete button" onclick="return confirm('Are you sure?')">Delete</a>
+                     </td>
+                  </tr>
+                  <tr th:each="hospitalData : ${hospitalDataList}">
+                     <td th:text="${hospitalData.id}">003</td>
+                     <td th:text="${hospitalData.year}">1993</td>
+                     <td th:text="${hospitalData.county}">SP-brffffffffasil</td>
+                     <td th:text="${hospitalData.hospital}">Campo Lnnnnnnnn
+                        impo
+                     </td>
+                     <td th:text="${hospitalData.surgery}">Neck-sufffgfffffffffffery</td>
+                     <td th:text="${hospitalData.cases}">3</td>
+                     <td>
+                        <a th:href="@{/hospitaldata/edit/{id}(id=${hospitalData.id})}" class="edit button">Edit</a> 
+                        <a th:href="@{/hospitaldata/delete/{id}(id=${hospitalData.id})}" class="delete button" onclick="return confirm('Are you sure?')">Delete</a>
+                     </td>
+                  </tr>
+                  <tr th:each="hospitalData : ${hospitalDataList}">
+                     <td th:text="${hospitalData.id}">003</td>
+                     <td th:text="${hospitalData.year}">1993</td>
+                     <td th:text="${hospitalData.county}">SP-brffffffffasil</td>
+                     <td th:text="${hospitalData.hospital}">Campo Lnnnnnnnn
+                        impo
+                     </td>
+                     <td th:text="${hospitalData.surgery}">Neck-sufffgfffffffffffery</td>
+                     <td th:text="${hospitalData.cases}">3</td>
+                     <td>
+                        <a th:href="@{/hospitaldata/edit/{id}(id=${hospitalData.id})}" class="edit button">Edit</a> 
+                        <a th:href="@{/hospitaldata/delete/{id}(id=${hospitalData.id})}" class="delete button" onclick="return confirm('Are you sure?')">Delete</a>
+                     </td>
+                  </tr>
+                  <tr th:each="hospitalData : ${hospitalDataList}">
+                     <td th:text="${hospitalData.id}">003</td>
+                     <td th:text="${hospitalData.year}">1993</td>
+                     <td th:text="${hospitalData.county}">SP-brffffffffasil</td>
+                     <td th:text="${hospitalData.hospital}">Campo Lnnnnnnnn
+                        impo
+                     </td>
+                     <td th:text="${hospitalData.surgery}">Neck-sufffgfffffffffffery</td>
+                     <td th:text="${hospitalData.cases}">3</td>
+                     <td>
+                        <a th:href="@{/hospitaldata/edit/{id}(id=${hospitalData.id})}" class="edit button">Edit</a> 
+                        <a th:href="@{/hospitaldata/delete/{id}(id=${hospitalData.id})}" class="delete button" onclick="return confirm('Are you sure?')">Delete</a>
+                     </td>
+                  </tr>
+                  <tr th:each="hospitalData : ${hospitalDataList}">
+                     <td th:text="${hospitalData.id}">003</td>
+                     <td th:text="${hospitalData.year}">1993</td>
+                     <td th:text="${hospitalData.county}">SP-brffffffffasil</td>
+                     <td th:text="${hospitalData.hospital}">Campo Lnnnnnnnn
+                        impo
+                     </td>
+                     <td th:text="${hospitalData.surgery}">Neck-sufffgfffffffffffery</td>
+                     <td th:text="${hospitalData.cases}">3</td>
+                     <td>
+                        <a th:href="@{/hospitaldata/edit/{id}(id=${hospitalData.id})}" class="edit button">Edit</a> 
+                        <a th:href="@{/hospitaldata/delete/{id}(id=${hospitalData.id})}" class="delete button" onclick="return confirm('Are you sure?')">Delete</a>
+                     </td>
+                  </tr>
+               </tbody> 
+               
+               -->
+               
+            </table>
+         </div>
+         <div class="border-bottom"></div>
+      </div>
+      <!-- Hyperlink button to navigate to "welcome.html" -->
+      <!-- Hyperlink button to navigate to "welcome.html" using Thymeleaf syntax 
+         <a th:href="@{/welcome}" class="add-hospital-data btn">Add Hospital data</a>
+                     -->
+      <script src="/js/index.js"></script>
+   </body>
+</html>
