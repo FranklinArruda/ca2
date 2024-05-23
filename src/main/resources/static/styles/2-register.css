@@ -30,13 +30,15 @@ button {
 /*---  COLORS  ---*/
 :root {
   --primary: #053249;
-  --backgroundColor: #ece5e5;
+ 
   --borderRadius: 5px;
   --textColor: rgb(70, 69, 69);
   --btnColor: #0852a1;
   --btnFontSize: 15px;
   --borderBottom: rgb(207, 207, 204);
   --headerColor: #f3eeee;
+  --formBackgroundColor:#fff;
+  --backgroundColor: #f4f4f4;
 }
 
 html {
@@ -69,7 +71,7 @@ padding: 10px;
   display: flex; /* Use flexbox */
   justify-content: space-between;
   align-items: center; /* Vertically center items */
-  background-color: var(--headerColor);
+  background-color: var(--backgroundColor);
   box-shadow: 0px 0px 10px var(--textColor);
   height: 100px;
   padding: 30px 5%;
@@ -87,6 +89,7 @@ padding: 10px;
   margin: 40px auto;
   padding: 10px;
   box-shadow: 2px 2px 10px var(--textColor);
+  background-color: var(--formBackgroundColor);
 }
 
 .form-container .success-message {
@@ -96,12 +99,10 @@ padding: 10px;
   text-align: center;
   border: 1px solid var(--btnColor);
   border-radius: var(--borderRadius);
-
-  display: none;
 }
 
 .form-container h2 {
-  color: var(--textColor);
+  color: var(--btnColor);
   text-align: center;
   padding: 15px;
 }
@@ -158,9 +159,12 @@ button:focus {
   color: #888;
 }
 
-.form-footer a:hover {
+.form-footer a:hover,
+.form-footer a:focus {
   color: var(--btnColor);
   cursor: pointer;
+   outline: none;  /*IT removes the outline on hoover with the TAB KEY*/
+  
 }
 
 /*BACK BUTTON*/

@@ -29,20 +29,30 @@ public class SecurityConfig {
              .authorizeHttpRequests((authorize) ->
              authorize
              
-                 .requestMatchers("/register").permitAll()
-                 .requestMatchers("/home").permitAll()
-                 .requestMatchers("/welcome").permitAll()
-                 .requestMatchers("/").permitAll() // Ensure root URL is permitted
-                 .requestMatchers("addHospitalData").permitAll() // Ensure root URL is permitted
+             
+             	
+          		.requestMatchers("/register").permitAll()
+          		.requestMatchers("/login").permitAll()
+
                  
+                 // Ensure root URL is permitted
+                 .requestMatchers("/").permitAll() 
+                 
+                 
+               
+                 
+                 
+                 // it Authorizes all the STATIC folder and files in it using '/**'
                 .requestMatchers("/styles/**").permitAll()
          		.requestMatchers("/images/**").permitAll()
          		.requestMatchers("/js/**").permitAll()
          		
-         		.requestMatchers("/dashboard").authenticated() // Ensure only authenticated users can access the dashboard
+         		 // Ensure only authenticated users can access the dashboard
+         		.requestMatchers("/dashboard").authenticated()
 
           )
           
+             
              .formLogin((form) ->
                  form
                      .loginPage("/login")

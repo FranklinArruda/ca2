@@ -27,7 +27,50 @@ public class UserController {
  public UserController(UserService userService) {
   this.userService = userService;
  }
+ 
+ 
+/**
+ * It sets the DEFAULT page on loading the application by using the '(/)' mapping.
+ * Map the root URL ("/") to the register/login page
+ * @return html home page
+ */
+ 
+ @GetMapping("/")
+ public String defaultPage(Model model) {
+     return "home"; 
+ }
+ 
+ 
 
+ @GetMapping("/login")
+ public String login(Model model, UserGettersAndSetters userGettersAdnSetters) {
+	 model.addAttribute("user", userGettersAdnSetters);
+  	return "login";
+ }
+  
+ @GetMapping("/register")
+ public String register(Model model, UserGettersAndSetters userGettersAdnSetters) {
+	 model.addAttribute("user", userGettersAdnSetters);
+	 return "register";
+ }
+ 
+
+ 
+ @PostMapping("/register")
+ public String registerSava(@ModelAttribute("user") UserGettersAndSetters userGettersAdnSetters, Model model) {
+     User user = userService.findByUsername(userGettersAdnSetters.getUsername());
+     if (user != null) {
+         model.addAttribute("Userexist", user);
+         return "register";
+     }
+     userService.save(userGettersAdnSetters);
+     return "redirect:/register?success";
+ }
+
+ 
+ 
+ 
+ 
  @GetMapping("/dashboard")
  public String home(Model model, Principal principal) {
   
@@ -44,42 +87,6 @@ public class UserController {
   return "dashboard";
  }
 
- // Map the root URL ("/") to the register page
- @GetMapping("/")
- public String defaultPage(Model model) {
-     return "home"; // Assuming "landpage" is the name of your landing page HTML file
- }
- @GetMapping("/login")
- public String login(Model model, UserGettersAndSetters userGettersAdnSetters) {
 
-  model.addAttribute("user", userGettersAdnSetters);
-  return "login";
- }
-  
- @GetMapping("/register")
- public String register(Model model, UserGettersAndSetters userGettersAdnSetters) {
- model.addAttribute("user", userGettersAdnSetters);
-  return "register";
- }
- 
- 
-
- @PostMapping("/register")
- public String registerSava(@ModelAttribute("user") UserGettersAndSetters userGettersAdnSetters, Model model) {
-  User user = userService.findByUsername(userGettersAdnSetters.getFirstName());
-  if (user != null) {
-   model.addAttribute("Userexist", user);
-   return "register";
-  }
-  
-  
-  userService.save(userGettersAdnSetters);
-  return "redirect:/register?success";
- }
- /*
- @GetMapping("/")
- public String defaultPage() {
-     return "addHospitalData"; // Loads welcome.html when accessing http://localhost:8080
- }*/
 
 }

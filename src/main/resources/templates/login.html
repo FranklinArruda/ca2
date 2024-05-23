@@ -1,116 +1,54 @@
 <!DOCTYPE html>
 <html lang="en"
-  xmlns:th="http://www.thymeleaf.org"
->
-
-<head>
- <meta charset="UTF-8">
- <title>Login</title>
- <style>
-  body {
-   font-family: 'Arial', sans-serif;
-   margin: 0;
-   padding: 0;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   height: 100vh;
-   background-color: #f4f4f4;
-  }
-
-  .form-container {
-   background-color: #fff;
-   width: 400px;
-   padding: 20px;
-   border-radius: 8px;
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-
-  h2 {
-   color:#074986;
-   text-align: center;
-   margin-bottom: 20px;
-  }
-
-  label {
-   display: block;
-   margin-bottom: 8px;
-   color:#074986;
-  }
-
-  input {
-   width: 100%;
-   padding: 8px;
-   margin-bottom: 16px;
-   border: 1px solid #ccc;
-   border-radius: 4px;
-   box-sizing: border-box;
-  }
-
-  button {
-    background-color: #074986;
-   color: #fff;
-   padding: 10px 20px;
-   border: none;
-   border-radius: 4px;
-   cursor: pointer;
-   font-weight: bold;
-   transition: background-color 0.3s;
-  }
-
-  button:hover {
-   background-color: #299d00;
-  }
-
-  .form-footer {
-   text-align: center;
-   margin-top: 20px;
-   color: #888;
-  }
-
-  .error-message,
-  .logout-message {
-   background-color: #074986;
-   color: #fff;
-   padding: 10px;
-   border-radius: 3px;
-   text-align: center;
-  }
- </style>
-</head>
-
-<body>
- <div class="container">
-  <div class="form-container">
-
-   <div th:if="${param.error}">
-    <div class="error-message">
-     <p>Invalid Username or Password</p>
-    </div>
-   </div>
-
-   <div th:if="${param.logout}">
-    <div class="logout-message">
-     <p>Logout Successful!</p>
-    </div>
-   </div>
-
-   <h2>Login</h2>
-   <form th:action="@{/login}" method="post" role="form" th:object="${user}">
-
-    <label for="username">Username | email:</label>
-    <input th:field="*{username}" type="text" id="username" name="username"
-     placeholder="Enter your Username or email" required>
-
-    <label for="password">Password:</label>
-    <input th:field="*{password}" type="password" id="password" name="password"
-     placeholder="************" required>
-
-    <button type="submit">Login</button>
-   </form>
-   <p class="form-footer">Don't have an account? <a th:href="@{/register}">Register</a>here.</p>
-  </div>
- </div>
-</body>
-
+   xmlns:th="http://www.thymeleaf.org"
+   >
+   <head>
+      <meta charset="UTF-8">
+      <title>Login</title>
+      <link rel="stylesheet" href="/styles/3-login.css">
+   </head>
+   <body>
+      <header>
+         <div class="header-container">
+            <div class="logo">
+               <img src="/images/CCT-logo-no-background-1024x197.webp" alt="">
+            </div>
+         </div>
+      </header>
+      <div class="container">
+         <div class="form-container">
+            <div th:if="${param.error}">
+               <div class="error-message">
+                  <p>Invalid Username or Password</p>
+               </div>
+            </div>
+            <div th:if="${param.logout}">
+               <div class="logout-message">
+                  <p>Logout Successful!</p>
+               </div>
+            </div>
+            <h2>Login</h2>
+            <form th:action="@{/login}" method="post" role="form" th:object="${user}">
+               <label for="username">Username | email:</label>
+               <input th:field="*{username}" type="text" id="username" name="username"
+                  placeholder="Enter your Username or email" required>
+               <label for="password">Password:</label>
+               <input th:field="*{password}" type="password" id="password" name="password"
+                  placeholder="************" required>
+               <button type="submit">Login</button>
+            </form>
+            <p class="form-footer">
+               Don't have an account? 
+               <a th:href="@{/register}">
+                  Register here.
+            </p>
+         </div>
+      </div>
+      
+      <!--back section button
+      
+      It maps the (/) set in the CONTROLLER to redirect to home page(landing page)
+      -->
+      <a class="button back-button" th:href="@{/}">Back</a>
+   </body>
 </html>

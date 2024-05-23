@@ -140,6 +140,8 @@ a:hover,
   --btnFontSize: 15px;
   --borderBottom: rgb(207, 207, 204);
   --headerColor: #f3eeee;
+  --formBackgroundColor:#fff;
+  --backgroundColor: #f4f4f4;
 }
 
 html {
@@ -172,7 +174,7 @@ padding: 10px;
   display: flex; /* Use flexbox */
   justify-content: space-between;
   align-items: center; /* Vertically center items */
-  background-color: var(--headerColor);
+  background-color: var(--backgroundColor);
   height: 100px;
   padding: 30px 5%;
   box-shadow: 0px 0px 10px var(--textColor);
