@@ -9,11 +9,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.JoinColumn;
-
 @Entity
 @Table(name = "hospital")
 public class HospitalData {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -23,22 +21,19 @@ public class HospitalData {
     private String hospital;
     private String surgery;
     private long cases;
-    
-  
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_foreign_id", nullable = false)
     private User user;
-    
-    
-    
-    public HospitalData() {
 
+    // Constructors, getters, and setters
+
+    public HospitalData() {
     }
 
- // Constructor
     public HospitalData(long year, String county, String hospital, String surgery, long cases) {
-    	super();
-    	this.year = year;
+        super();
+        this.year = year;
         this.county = county;
         this.hospital = hospital;
         this.surgery = surgery;

@@ -32,9 +32,7 @@ public class HospitalDataServiceImplementation implements HospitalDataService {
     public HospitalData findById(Long id) {
         return hospitalDataRepository.findById(id).orElse(null);
     }
-    
-    
-    // saves the user in the repository.
+
     @Override
     public HospitalData save(HospitalDataGettersAndSetters hospitalDataGettersAndSetters) {
         HospitalData hospitalDT = new HospitalData(
@@ -47,8 +45,6 @@ public class HospitalDataServiceImplementation implements HospitalDataService {
         return hospitalDataRepository.save(hospitalDT);
     }
 
-    
-    
 
     @Override
     public void deleteById(Long id) {

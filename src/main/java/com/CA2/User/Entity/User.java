@@ -20,25 +20,26 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "user_table") // this line will match the table, but it doesnt find it will create one automatically;
+@Table(name = "user")// this line will match the table, but it doesnt find it will create one automatically;
 public class User {
+    
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "userID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "userID")
     private int userID;
-	
+
     private String username;
     private String password;
     private String firstName;
     private String lastName;
-    
-    
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<HospitalData> hospitalDataList;
 
- public User() {
+    // Constructors, getters, and setters
 
- }
+    public User() {
+    }
 
  public User(String firstName, String lastName, String username, String password) {
  	super();
