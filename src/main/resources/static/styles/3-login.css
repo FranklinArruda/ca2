@@ -39,6 +39,7 @@ button {
   --headerColor: #f3eeee;
   --formBackgroundColor:#fff;
   --backgroundColor: #f4f4f4;
+     --backButtonColor:  #e07714;
 }
 
 html {
@@ -153,7 +154,6 @@ button:focus {
   background-color: var(--btnColor);
   color: white;
   box-shadow: 2px 2px 10px var(--btnColor);
-  border: none;
   outline: none;
 }
 
@@ -173,23 +173,19 @@ button:focus {
 /*BACK BUTTON*/
 .back-button {
   position: absolute;
-  bottom: 30px;
+  top: 30px;
   right: 100px;
-  color: var(--backgroundColor);
-  color: var(--btnColor);
   font-size: var(--btnFontSize);
   padding: 8px 15px;
   border-radius: 5px;
   font-weight: lighter;
-  color: var(--btnColor);
+  color: var(--backButtonColor);
+  border: 1px solid var(--backButtonColor);
 }
 
 .back-button:hover,
 .back-button:focus {
-  color: var(--btnColor);
-  background-color: var(--btnColor);
+  background-color: var(--backButtonColor);
   color: white;
-  box-shadow: 2px 2px 10px var(--btnColor);
-  border: none;
-  outline: none;
+  box-shadow: 2px 2px 10px var(--backButtonColor);
 }

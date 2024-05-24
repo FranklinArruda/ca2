@@ -9,7 +9,7 @@ import com.CA2.GettersAndSetters.UserGettersAndSetters;
 import com.CA2.User.Repositories.UserRepository;
 
 /*
- * tHIS CLASS IS RESPONSIBLE FOR ENTERING DATA INTO DATABASE..
+ * THIS CLASS IS RESPONSIBLE FOR ENTERING DATA INTO DATABASE..
  * Make sure to align the paramaters data obrjct accoridn to the table..
  * */
 
@@ -31,6 +31,18 @@ public class UserServiceImplementation implements UserService {
   return userRepository.findByUsername(username);
  }
 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  @Override
  public User save(UserGettersAndSetters userGettersAndSetters) {
 	 

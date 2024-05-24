@@ -6,7 +6,9 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+
+//import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -29,19 +31,16 @@ public class SecurityConfig {
              .authorizeHttpRequests((authorize) ->
              authorize
              
-             
-             	
-          		.requestMatchers("/register").permitAll()
-          		.requestMatchers("/login").permitAll()
-
-                 
-                 // Ensure root URL is permitted
+                // Ensure root URL is permitted
                  .requestMatchers("/").permitAll() 
                  
                  
-               
-                 
-                 
+             	
+          		.requestMatchers("/register").permitAll()
+          		.requestMatchers("/login").permitAll()
+          		.requestMatchers("/addDataGet").permitAll()
+          		.requestMatchers("/addDataPost").permitAll()
+          
                  // it Authorizes all the STATIC folder and files in it using '/**'
                 .requestMatchers("/styles/**").permitAll()
          		.requestMatchers("/images/**").permitAll()
@@ -49,9 +48,12 @@ public class SecurityConfig {
          		
          		 // Ensure only authenticated users can access the dashboard
          		.requestMatchers("/dashboard").authenticated()
-
+         		//.requestMatchers("/dashboard").permitAll()
+         		
+         		
+             
+         		
           )
-          
              
              .formLogin((form) ->
                  form

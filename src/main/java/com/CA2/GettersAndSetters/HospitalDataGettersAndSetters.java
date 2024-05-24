@@ -1,42 +1,23 @@
-package com.CA2.User.Entity;
+package com.CA2.GettersAndSetters;
+import jakarta.validation.constraints.NotNull;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.JoinColumn;
+public class HospitalDataGettersAndSetters {
 
-@Entity
-@Table(name = "hospital")
-public class HospitalData {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
-    private long year;
-    private String county;
+	@NotNull(message = "Year is required")
+	private long year;
+    
+	@NotNull(message = "Year is required")
+	private String county;
+	@NotNull(message = "Year is required")
     private String hospital;
+	@NotNull(message = "Year is required")
     private String surgery;
+	@NotNull(message = "Year is required")
     private long cases;
     
-  
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_foreign_id", nullable = false)
-    private User user;
-    
-    
-    
-    public HospitalData() {
-
-    }
-
+   
  // Constructor
-    public HospitalData(long year, String county, String hospital, String surgery, long cases) {
+    public HospitalDataGettersAndSetters(long year, String county, String hospital, String surgery, long cases) {
     	super();
     	this.year = year;
         this.county = county;
@@ -44,22 +25,12 @@ public class HospitalData {
         this.surgery = surgery;
         this.cases = cases;
     }
-
-
-    // Getters and setters
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
+ 
     public long getYear() {
         return year;
     }
 
-    public void setYear(long year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 
@@ -94,16 +65,7 @@ public class HospitalData {
     public void setCases(long cases) {
         this.cases = cases;
     }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
     
-   
     @Override
     public String toString() {
     	return "HospitalDataGettersAndSetters [year=" + year + ", county=" + county + ", hospital=" + hospital + ", surgery=" + surgery + ", cases=" + cases + "]";
@@ -111,3 +73,4 @@ public class HospitalData {
     }
 
 }
+

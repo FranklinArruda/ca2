@@ -19,7 +19,7 @@
          </div>
          <div class="welcome-message-container">
             <h1 class="welcome-message">Welcome to the Dashboard</h1>
-            <h2 th:text="${userdetail.firstname}" class="dashboard-user-name">USERname</h2>
+            <h2 th:text="${userdetail.firstname}" class="dashboard-user-name"></h2>
          </div>
          <div class="button-container">
             <span sec:authorize="isAuthenticated">
@@ -63,6 +63,10 @@
             </table>
          </div>
          <div class="border-bottom"></div>
+         
+          <!-- add data redirects to add data HTML file -->
+         <a th:href="@{/addDataGet}" class="add button">Add Data</a>
+        
       </div>
       <!-- Hyperlink button to navigate to "welcome.html" -->
       <!-- Hyperlink button to navigate to "welcome.html" using Thymeleaf syntax 

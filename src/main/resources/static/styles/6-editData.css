@@ -132,6 +132,7 @@ button {
   --headerColor: #f3eeee;
   --formBackgroundColor:#fff;
   --backgroundColor: #f4f4f4;
+  --deleteButton: #a00505; 
 }
 
 html {
@@ -222,7 +223,6 @@ button:focus {
   background-color: var(--btnColor);
   color: white;
   box-shadow: 2px 2px 10px var(--btnColor);
-  border: none;
   outline: none;
 }
 
@@ -240,23 +240,20 @@ button:focus {
 /*cancel button*/
 .cancel-button {
   position: absolute;
-  bottom: 5px;
-  right: 10px;
-  padding: 5px 12px;
-  color: var(--backgroundColor);
-  color: var(--btnColor);
-  font-size: 12px;
+  top: 30px;
+  right: 100px;
+  color: var(--deleteButton);
+  font-size: var(--btnFontSize);
+  padding: 8px 15px;
   border-radius: 5px;
   font-weight: lighter;
-  color: var(--btnColor);
+  border: 1px solid var(--deleteButton);
 }
 
 .cancel-button:hover,
 .cancel-button:focus {
-  color: var(--btnColor);
-  background-color: var(--btnColor);
+  background-color: var(--deleteButton);
   color: white;
-  box-shadow: 2px 2px 10px var(--btnColor);
-  border: none;
+  box-shadow: 2px 2px 10px var(--deleteButton);
   outline: none;
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.CA2.User.Entity.User;
 import com.CA2.User.Services.UserService;
+import com.CA2.GettersAndSetters.HospitalDataGettersAndSetters;
 import com.CA2.GettersAndSetters.UserGettersAndSetters;
 
 @Controller
@@ -41,32 +42,62 @@ public class UserController {
  }
  
  
-
  @GetMapping("/login")
  public String login(Model model, UserGettersAndSetters userGettersAdnSetters) {
 	 model.addAttribute("user", userGettersAdnSetters);
   	return "login";
  }
   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  @GetMapping("/register")
- public String register(Model model, UserGettersAndSetters userGettersAdnSetters) {
-	 model.addAttribute("user", userGettersAdnSetters);
+ public String register(Model model, UserGettersAndSetters userGettersAndSetters) {
+	 model.addAttribute("user", userGettersAndSetters);
 	 return "register";
  }
  
 
  
  @PostMapping("/register")
- public String registerSava(@ModelAttribute("user") UserGettersAndSetters userGettersAdnSetters, Model model) {
-     User user = userService.findByUsername(userGettersAdnSetters.getUsername());
+ public String registerSava(@ModelAttribute("user") UserGettersAndSetters userGettersAndSetters, Model model) {
+     User user = userService.findByUsername(userGettersAndSetters.getUsername());
+    
      if (user != null) {
          model.addAttribute("Userexist", user);
          return "register";
      }
-     userService.save(userGettersAdnSetters);
+     
+     
+     userService.save(userGettersAndSetters);
      return "redirect:/register?success";
  }
 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  
@@ -86,7 +117,7 @@ public class UserController {
   model.addAttribute("userdetail", userDetails);
   return "dashboard";
  }
-
-
-
+ 
+ 
+ 
 }

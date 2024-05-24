@@ -1,39 +1,53 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
     <title>Add Hospital Data</title>
+    <link rel="stylesheet" href="/styles/5-addData.css">
 </head>
-
 <body>
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <img src="/images/CCT-logo-no-background-1024x197.webp" alt="">
+        </div>
+    </div>
+</header>
+<div class="form-container">
+
+<!-- THHIS USES THE rediect: -->
+
+
+    <div th:if="${param.success}">
+        <div class="success-message">
+            <p>Hospital data added successfully</p>
+        </div>
+    </div>
+    
+    <div th:if="${param.failure}">
+        <div class="failure-message">
+            <p>Hospital data insertion failed. Please try again.</p>
+        </div>
+    </div>
+     
+         
     <h1>Add Hospital Data</h1>
-   
-    <!-- Form to add hospital data -->
-    <form th:action="@{/hospitaldata/add}" method="post"> <!-- Updated action URL -->
-        <!-- Form fields for hospital data -->
-        <div>
-            <label for="year">Year:</label>
-            <input type="text" id="year" name="year">
-        </div>
-        <div>
-            <label for="county">County:</label>
-            <input type="text" id="county" name="county">
-        </div>
-        <div>
-            <label for="hospital">Hospital:</label>
-            <input type="text" id="hospital" name="hospital">
-        </div>
-        <div>
-            <label for="surgery">Surgery:</label>
-            <input type="text" id="surgery" name="surgery">
-        </div>
-        <div>
-            <label for="cases">Cases:</label>
-            <input type="text" id="cases" name="cases">
-        </div>
+
+    <!-- Form to add hospital data to database -->
+    <form th:action="@{/addDataPost}" method="post" th:object="${hospitalData}">
+        <label for="year">Year:</label>
+        
+        <input type="text" id="year" th:field="*{year}">
+        <label for="county">County:</label>
+        <input type="text" id="county" th:field="*{county}">
+        <label for="hospital">Hospital:</label>
+        <input type="text" id="hospital" th:field="*{hospital}">
+        <label for="surgery">Surgery:</label>
+        <input type="text" id="surgery" th:field="*{surgery}">
+        <label for="cases">Cases:</label>
+        <input type="text" id="cases" th:field="*{cases}">
         <button type="submit">Add Hospital Data</button>
     </form>
+</div>
 </body>
-
 </html>

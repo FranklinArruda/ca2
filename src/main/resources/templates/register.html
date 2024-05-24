@@ -5,8 +5,10 @@
    <head>
       <meta charset="UTF-8">
       <title>Registration</title>
-      <link rel="stylesheet" href="/styles/2-register.css">
+     
+      <link th:href="@{/styles/2-register.css}" rel="stylesheet"/>
    </head>
+   
    <!-- HEADER-->
    <body>
       <header>
@@ -16,46 +18,47 @@
             </div>
          </div>
       </header>
+      
       <!-- FORM CONTAINER-->
       <div class="form-container">
-      
+         
          <div th:if="${param.success}">
             <div class="success-message">
                <p>Registration Successful</p>
             </div>
          </div>
+         
          <h2>Registration</h2>
-         <form th:action="@{/register}" method="post" role="form" th:object="${user}">
-            <label for="firstName">First Name:</label>
-            <input th:field="*{firstName}" type="text" id="firstName" name="firstName" placeholder="Enter your first name"
-               required>
-            <label for="lastName">Last Name:</label>
-            <input th:field="*{lastName}" type="text" id="lastName" name="lastName" placeholder="Enter your last name"
-               required>
-            <label for="username">Enter you Email:</label>
-            <input th:field="*{username}" type="text" id="username" name="username" placeholder="Enter your email"
-               required>
-            <label for="password">Password:</label>
-            <input th:field="*{password}" type="password" id="password" name="password"
-               placeholder="************" required>
-            <button type="submit">Register</button>
-         </form>
+         
+        <form th:action="@{/add}" method="post" th:object="${hospitalData}">
+    <input th:field="*{year}" type="text" id="year" required>
+    <label for="year">Year:</label>
+    
+    <input th:field="*{county}" type="text" id="county" required>
+    <label for="county">County:</label>
+    
+    <input th:field="*{hospital}" type="text" id="hospital" required>
+    <label for="hospital">Hospital:</label>
+    
+    <input th:field="*{surgery}" type="text" id="surgery" required>
+    <label for="surgery">Surgery:</label>
+    
+    <input th:field="*{cases}" type="text" id="cases" required>
+    <label for="cases">Cases:</label>
+    
+    <button type="submit">Add Hospital Data</button>
+</form>
+
+         
          <div>
             <span th:if="${Userexist}" style="color: red;">Username is Taken</span>
          </div>
          <div>
-            <p class="form-footer">
-               Already have an account? 
-               <a th:href="@{/login1}">
-                  Login here.
-            </p>
+            <p class="form-footer">Already have an account?<a th:href="@{/login1}">Login here.</p>
          </div>
       </div>
       
-      <!--back section button
-      
-      It maps the (/) set in the CONTROLLER to redirect to home page(landing page)
-      -->
-      <a class="button back-button" th:href="@{/}">Back</a>
+      <!--back section button. It maps the (/) set in the CONTROLLER to redirect to home page(landing page) -->
+      <a class="button back-button" th:href="@{/}">Back to Home page</a>
    </body>
 </html>

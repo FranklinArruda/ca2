@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html lang="en"
-  xmlns:th="http://www.thymeleaf.org"
->
-<head>
-    <meta charset="UTF-8">
-    <title>Edit Hospital Data</title>
-</head>
-
-
-<body>
-    <h1>Edit Hospital Data</h1>
-    <form th:action="@{/hospitaldata/edit}" th:object="${hospitalData}" method="post">
-        <input type="hidden" th:field="*{id}" />
-        <label>Year: <input type="number" th:field="*{year}" /></label><br/>
-        <label>County: <input type="text" th:field="*{county}" /></label><br/>
-        <label>Hospital: <input type="text" th:field="*{hospital}" /></label><br/>
-        <label>Surgery: <input type="text" th:field="*{surgery}" /></label><br/>
-        <label>Cases: <input type="number" th:field="*{cases}" /></label><br/>
-        <button type="submit">Save</button>
-    </form>
-    <a th:href="@{/home}">Cancel</a>
-</body>
+   xmlns:th="http://www.thymeleaf.org"
+   >
+   <head>
+      <meta charset="UTF-8">
+      <title>Edit Hospital Data</title>
+      <link th:href="@{/styles/6-editData.css}" rel="stylesheet" >
+   </head>
+   <body>
+      <header>
+         <div class="header-container">
+            <div class="logo">
+               <img src="/images/CCT-logo-no-background-1024x197.webp" alt="">
+            </div>
+         </div>
+      </header>
+      <div class="form-container">
+         <h1>Edit Hospital Data</h1>
+         <form th:action="@{/hospitaldata/edit}" th:object="${hospitalData}" method="post">
+            <input type="hidden" th:field="*{id}" />
+            <label>Year:</label>
+            <input type="number" th:field="*{year}" />
+            <label>County:</label>
+            <input type="text" th:field="*{county}" />
+            <label>Hospital:</label>
+            <input type="text" th:field="*{hospital}" />
+            <label>Surgery:</label>
+            <input type="text" th:field="*{surgery}" />
+            <label>Cases:</label>
+            <input type="number" th:field="*{cases}" />
+            <button type="submit">Save</button>
+         </form>
+      </div>
+      <a th:href="@{/dashboard}" class="cancel-button button">Cancel</a>
+   </body>
 </html>

@@ -270,31 +270,24 @@ body {
 
 /* --- NAVIGATION BAR ---*/
 
+/* --- NAVIGATION BAR ---*/
 .nav-bar-button a {
   display: inline-block;
   padding: 0 10px;
-}
-
-.nav-bar-button a {
-  margin-left: 20px;
-  animation: spinning3d 2s linear;
-  transform-style: preserve-3d;
-}
-
-.nav-bar-button a {
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.nav-bar-button a {
   font-size: var(--btnFontSize);
   padding: 10px;
   border-radius: 5px;
   font-weight: lighter;
   border: 1px solid var(--btnColor);
   color: var(--btnColor);
+  animation: spinning3d 2s linear;
 }
+
+.nav-bar-button a:hover {
+  animation-play-state: paused;
+  
+}
+
 
 .active.button {
   background-color: var(--btnColor);
