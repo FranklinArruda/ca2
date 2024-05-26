@@ -37,14 +37,26 @@
     <form th:action="@{/addData}" method="post" th:object="${hospitalData}">
         <label for="year">Year:</label>
         <input type="number" id="year" th:field="*{year}">
+        <div th:if="${#fields.hasErrors('year')}" th:errors="*{year}"></div>
+        
+        
         <label for="county">County:</label>
         <input type="text" id="county" th:field="*{county}">
+         <span th:if="${#fields.hasErrors('county')}" th:errors="*{county}"></span>
+         
+         
         <label for="hospital">Hospital:</label>
         <input type="text" id="hospital" th:field="*{hospital}">
+         <span th:if="${#fields.hasErrors('hospital')}" th:errors="*{hospital}"></span>
+         
         <label for="surgery">Surgery:</label>
         <input type="text" id="surgery" th:field="*{surgery}">
+         <span th:if="${#fields.hasErrors('surgery')}" th:errors="*{surgery}"></span>
+         
         <label for="cases">Cases:</label>
         <input type="number" id="cases" th:field="*{cases}">
+         <span th:if="${#fields.hasErrors('cases')}" th:errors="*{cases}"></span>
+         
         <button type="submit">Add Hospital Data</button>
     </form>
 </div>

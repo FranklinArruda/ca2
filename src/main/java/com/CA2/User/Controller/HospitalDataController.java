@@ -28,8 +28,6 @@ public class HospitalDataController {
     @Autowired
    private HospitalDataService hospitalDataService;
     
-    
-    
     @Autowired
     private UserService userService;
     
@@ -49,9 +47,14 @@ public class HospitalDataController {
      * 
      * */
     @PostMapping("/addData")
-    public String addHospitalData(@ModelAttribute("hospitalData") HospitalDataGettersAndSetters hospitalDataGettersAndSetters, Model model) {
+    public String addHospitalData(@Valid @ModelAttribute("hospitalData") HospitalDataGettersAndSetters hospitalDataGettersAndSetters, BindingResult result, Model model) {
         
-           
+    	// this part here will be used to append the values valid from my Hospital Getters and setters class. It will return
+    	// its page with the values appened using the 
+    	if (result.hasErrors()) {
+            // If there are validation errors, return to the form
+            return "addHospitalData";
+        }
 
         try {
             // Retrieve the currently authenticated user
@@ -72,10 +75,7 @@ public class HospitalDataController {
             // Redirect with a failure parameter
             return "redirect:/addData?failure";
         }
-        
     }
-    }
-    
     /*
      * 
      
@@ -104,4 +104,4 @@ public class HospitalDataController {
     
     
     
-
+}
