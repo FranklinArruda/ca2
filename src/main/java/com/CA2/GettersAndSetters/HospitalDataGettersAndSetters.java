@@ -1,14 +1,27 @@
+
+
 package com.CA2.GettersAndSetters;
+
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
 public class HospitalDataGettersAndSetters {
 
-	@NotNull(message = "Year is required")
+    @NotNull(message = "Year is required")
     private Long year;
 
-	// Ensure that county is not blank
-    @NotBlank(message = "County is required")
+    @NotEmpty(message = "County is required")
     private String county;
 
     @NotBlank(message = "Hospital is required")
@@ -18,8 +31,7 @@ public class HospitalDataGettersAndSetters {
     private String surgery;
 
     @NotNull(message = "Cases is required")
-    private Long cases =0L; // Initialize to 0 or any default value
-   
+    private Long cases = 0L; // Initialize to 0 or any default value
  // Constructor
     public HospitalDataGettersAndSetters(Long year, String county, String hospital, String surgery, Long cases) {
     	super();

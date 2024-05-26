@@ -34,6 +34,24 @@ public class HospitalDataServiceImplementation implements HospitalDataService {
     }
 
     @Override
+    public HospitalData save(HospitalDataGettersAndSetters hospitalDataGettersAndSetters, User user) {
+        HospitalData hospitalData = new HospitalData(
+            hospitalDataGettersAndSetters.getYear(),
+            hospitalDataGettersAndSetters.getCounty(),
+            hospitalDataGettersAndSetters.getHospital(),
+            hospitalDataGettersAndSetters.getSurgery(),
+            hospitalDataGettersAndSetters.getCases()
+        );
+        hospitalData.setUser(user); // Set the user
+        return hospitalDataRepository.save(hospitalData);
+    }
+    
+   /* 
+    * 
+    	how it was before passing the user ID:
+    	
+    	
+   @Override
     public HospitalData save(HospitalDataGettersAndSetters hospitalDataGettersAndSetters) {
         HospitalData hospitalDT = new HospitalData(
                 hospitalDataGettersAndSetters.getYear(),
@@ -43,7 +61,7 @@ public class HospitalDataServiceImplementation implements HospitalDataService {
                 hospitalDataGettersAndSetters.getCases()
         );
         return hospitalDataRepository.save(hospitalDT);
-    }
+    }*/
 
 
     @Override

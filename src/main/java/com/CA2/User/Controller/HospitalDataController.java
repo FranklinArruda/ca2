@@ -6,6 +6,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import com.CA2.User.Entity.HospitalData;
@@ -18,13 +19,21 @@ import com.CA2.GettersAndSetters.UserGettersAndSetters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
+import jakarta.validation.Valid;
+
 @Controller
 public class HospitalDataController { 
     
     @Autowired
    private HospitalDataService hospitalDataService;
     
- // Declare logger
+    
+    
+    @Autowired
+    private UserService userService;
+    
+    // Declare logger
     private static final Logger logger = LoggerFactory.getLogger(HospitalDataController.class);
 
     
@@ -34,22 +43,53 @@ public class HospitalDataController {
         return "addHospitalData";
     }
 
+    /*
+     * In order for the jakarta validation to work properly I must have imported in here, reference the @Valid annotation 
+     * in the hospital data method parameter, as well as importing the BindingResult result 
+     * 
+     * */
+    @PostMapping("/addData")
+    public String addHospitalData(@ModelAttribute("hospitalData") HospitalDataGettersAndSetters hospitalDataGettersAndSetters, Model model) {
+        
+           
+
+        try {
+            // Retrieve the currently authenticated user
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            String username = userDetails.getUsername();
+            User user = userService.findByUsername(username);
+
+            // Save the hospital data to the database with the associated user
+            hospitalDataService.save(hospitalDataGettersAndSetters, user);
+
+            // Redirect with a success parameter
+            return "redirect:/addData?success";
+
+        } catch (Exception e) {
+            // Log the exception (optional)
+            logger.error("Error saving hospital data", e);
+            // Redirect with a failure parameter
+            return "redirect:/addData?failure";
+        }
+        
+    }
+    }
+    
+    /*
+     * 
+     
     @PostMapping("/addData")
     public String addHospitalData(@ModelAttribute("hospitalData") HospitalDataGettersAndSetters hospitalDataGettersAndSetters,Model model) {
     	
     	try {
     		
-    		
-    		
-    		
-    	
     	// Save the hospital data to the database
         hospitalDataService.save(hospitalDataGettersAndSetters);
 
         // Redirect with a success parameter
         return "redirect:/addData?success";
-   
-
+  
 
    } catch (Exception e) {
        // Log the exception (optional)
@@ -60,5 +100,8 @@ public class HospitalDataController {
 
 
     }
+*/
+    
+    
+    
 
-}
