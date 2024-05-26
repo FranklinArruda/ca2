@@ -23,8 +23,12 @@ public interface HospitalDataService {
     List<HospitalData> findAll();
     
     
+    // delete data by ID	
+    void deleteById(Long id);
+    
+    // edit data by ID (find data by the ID)
     HospitalData findById(Long id);
     
-    
-    void deleteById(Long id);
+    // after finding the data by ID thie method POST the update.
+    public HospitalData updateHospitalData(Long id, HospitalDataGettersAndSetters newData);
 }

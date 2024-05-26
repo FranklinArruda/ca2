@@ -17,7 +17,8 @@
       </header>
       <div class="form-container">
          <h1>Edit Hospital Data</h1>
-         <form th:action="@{/hospitaldata/edit}" th:object="${hospitalData}" method="post">
+         <form th:action="@{/hospitaldata/edit/{id}(id=${hospitalData.id})}" th:object="${hospitalData}" method="post">
+
             <input type="hidden" th:field="*{id}" />
             <label>Year:</label>
             <input type="number" th:field="*{year}" />

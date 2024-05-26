@@ -104,11 +104,51 @@ public class HospitalDataController {
     
     
     
+    
     @GetMapping("/hospitaldata/delete/{id}")
     public String deleteHospitalData(@PathVariable("id") Long id, Model model) {
         hospitalDataService.deleteById(id);
         return "redirect:/dashboard";
     }
+    
+    
+    
+    
+    
+    
+    
+    @GetMapping("/hospitaldata/edit/{id}")
+    public String showEditHospitalDataForm(@PathVariable("id") Long id, Model model) {
+        HospitalData hospitalData = hospitalDataService.findById(id);
+        model.addAttribute("hospitalData", hospitalData);
+        return "editHospitalData";
+    }
+
+    
+    
+    
+    /**
+     this is similary to add data then? but it uses the id of an exiting data instead of the users id.
+     because the user is already logged in and since it will return 
+     the data only from that user all it need is the id of the row from that logged in user table
+     */
+    
+    @PostMapping("/hospitaldata/edit/{id}")
+    public String updateHospitalData(@PathVariable("id") Long id, @ModelAttribute("hospitalData") HospitalDataGettersAndSetters newData, Model model) {
+        HospitalData updatedData = hospitalDataService.updateHospitalData(id, newData);
+        
+        if (updatedData != null) {
+            // Update successful
+            return "redirect:/dashboard?updateSuccess";
+        } else {
+            // Update failed (entry with given ID not found)
+            return "redirect:/dashboard?updateFailure";
+        }
+    }
+    
+    
+    
+    
 
     
 }

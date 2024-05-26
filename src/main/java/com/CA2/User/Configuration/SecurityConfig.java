@@ -52,7 +52,10 @@ public class SecurityConfig {
          		.requestMatchers("/dashboard").authenticated()
          		.requestMatchers("/addData/**").authenticated()// Permit all endpoints starting with "/addData"
          		.requestMatchers("/hospitaldata/delete/{id}").authenticated() // Authorize delete endpoint
+         		.requestMatchers("/hospitaldata/edit/{id}").authenticated() // Authorize update endpoint
          		
+
+         	
                 .and()	
           )
              
