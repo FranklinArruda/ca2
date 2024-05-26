@@ -51,7 +51,9 @@ public class SecurityConfig {
          		 // Ensure only authenticated users can access the dashboard
          		.requestMatchers("/dashboard").authenticated()
          		.requestMatchers("/addData/**").authenticated()// Permit all endpoints starting with "/addData"
-                  		
+         		.requestMatchers("/hospitaldata/delete/{id}").authenticated() // Authorize delete endpoint
+         		
+                .and()	
           )
              
              .formLogin((form) ->

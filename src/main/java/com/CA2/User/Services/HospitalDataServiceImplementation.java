@@ -27,6 +27,8 @@ public class HospitalDataServiceImplementation implements HospitalDataService {
     public List<HospitalData> findAll() {
         return hospitalDataRepository.findAll();
     }
+    
+    
 
     @Override
     public HospitalData findById(Long id) {

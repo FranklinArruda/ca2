@@ -104,4 +104,11 @@ public class HospitalDataController {
     
     
     
+    @GetMapping("/hospitaldata/delete/{id}")
+    public String deleteHospitalData(@PathVariable("id") Long id, Model model) {
+        hospitalDataService.deleteById(id);
+        return "redirect:/dashboard";
+    }
+
+    
 }
