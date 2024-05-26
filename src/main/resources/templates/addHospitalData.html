@@ -34,10 +34,9 @@
     <h1>Add Hospital Data</h1>
 
     <!-- Form to add hospital data to database -->
-    <form th:action="@{/addDataPost}" method="post" th:object="${hospitalData}">
+    <form th:action="@{/addData}" method="post" th:object="${hospitalData}">
         <label for="year">Year:</label>
-        
-        <input type="text" id="year" th:field="*{year}">
+        <input type="number" id="year" th:field="*{year}">
         <label for="county">County:</label>
         <input type="text" id="county" th:field="*{county}">
         <label for="hospital">Hospital:</label>
@@ -45,7 +44,7 @@
         <label for="surgery">Surgery:</label>
         <input type="text" id="surgery" th:field="*{surgery}">
         <label for="cases">Cases:</label>
-        <input type="text" id="cases" th:field="*{cases}">
+        <input type="number" id="cases" th:field="*{cases}">
         <button type="submit">Add Hospital Data</button>
     </form>
 </div>

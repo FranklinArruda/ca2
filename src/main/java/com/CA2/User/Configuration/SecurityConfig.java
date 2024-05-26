@@ -35,11 +35,13 @@ public class SecurityConfig {
                  .requestMatchers("/").permitAll() 
                  
                  
-             	
-          		.requestMatchers("/register").permitAll()
+                 .requestMatchers("/favicon.ico").permitAll()
+
+          		.requestMatchers("/registerGet").permitAll() // get 'Register' page
+          		.requestMatchers("/registerPost").permitAll() // renders the action post form > 'Register' page 
+          		
           		.requestMatchers("/login").permitAll()
-          		.requestMatchers("/addDataGet").permitAll()
-          		.requestMatchers("/addDataPost").permitAll()
+          		
           
                  // it Authorizes all the STATIC folder and files in it using '/**'
                 .requestMatchers("/styles/**").permitAll()
@@ -48,11 +50,8 @@ public class SecurityConfig {
          		
          		 // Ensure only authenticated users can access the dashboard
          		.requestMatchers("/dashboard").authenticated()
-         		//.requestMatchers("/dashboard").permitAll()
-         		
-         		
-             
-         		
+         		.requestMatchers("/addData/**").authenticated()// Permit all endpoints starting with "/addData"
+                  		
           )
              
              .formLogin((form) ->

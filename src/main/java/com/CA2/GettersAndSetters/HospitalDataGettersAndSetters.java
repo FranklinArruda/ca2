@@ -1,23 +1,27 @@
 package com.CA2.GettersAndSetters;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 
 public class HospitalDataGettersAndSetters {
 
 	@NotNull(message = "Year is required")
-	private long year;
-    
-	@NotNull(message = "Year is required")
-	private String county;
-	@NotNull(message = "Year is required")
+    private Long year;
+
+	// Ensure that county is not blank
+    @NotBlank(message = "County is required")
+    private String county;
+
+    @NotBlank(message = "Hospital is required")
     private String hospital;
-	@NotNull(message = "Year is required")
+
+    @NotBlank(message = "Surgery is required")
     private String surgery;
-	@NotNull(message = "Year is required")
-    private long cases;
-    
+
+    @NotNull(message = "Cases is required")
+    private Long cases =0L; // Initialize to 0 or any default value
    
  // Constructor
-    public HospitalDataGettersAndSetters(long year, String county, String hospital, String surgery, long cases) {
+    public HospitalDataGettersAndSetters(Long year, String county, String hospital, String surgery, Long cases) {
     	super();
     	this.year = year;
         this.county = county;
@@ -26,11 +30,11 @@ public class HospitalDataGettersAndSetters {
         this.cases = cases;
     }
  
-    public long getYear() {
+    public Long getYear() {
         return year;
     }
 
-    public void setYear(Integer year) {
+    public void setYear(Long year) {
         this.year = year;
     }
 
@@ -58,11 +62,11 @@ public class HospitalDataGettersAndSetters {
         this.surgery = surgery;
     }
 
-    public long getCases() {
+    public Long getCases() {
         return cases;
     }
 
-    public void setCases(long cases) {
+    public void setCases(Long cases) {
         this.cases = cases;
     }
     

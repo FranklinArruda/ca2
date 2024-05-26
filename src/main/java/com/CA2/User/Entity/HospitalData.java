@@ -14,13 +14,13 @@ import jakarta.persistence.JoinColumn;
 public class HospitalData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
-    private long year;
+    private Long year;
     private String county;
     private String hospital;
     private String surgery;
-    private long cases;
+    private Long cases;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_foreign_id", nullable = false)
@@ -31,7 +31,7 @@ public class HospitalData {
     public HospitalData() {
     }
 
-    public HospitalData(long year, String county, String hospital, String surgery, long cases) {
+    public HospitalData(Long year, String county, String hospital, String surgery, Long cases) {
         super();
         this.year = year;
         this.county = county;
@@ -41,20 +41,22 @@ public class HospitalData {
     }
 
 
+
+    
     // Getters and setters
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public long getYear() {
+    public Long getYear() {
         return year;
     }
 
-    public void setYear(long year) {
+    public void setYear(Long year) {
         this.year = year;
     }
 
@@ -86,7 +88,7 @@ public class HospitalData {
         return cases;
     }
 
-    public void setCases(long cases) {
+    public void setCases(Long cases) {
         this.cases = cases;
     }
 

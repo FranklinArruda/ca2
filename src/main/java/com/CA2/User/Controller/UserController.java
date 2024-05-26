@@ -63,7 +63,7 @@ public class UserController {
  
  
  
- @GetMapping("/register")
+ @GetMapping("/registerGet")
  public String register(Model model, UserGettersAndSetters userGettersAndSetters) {
 	 model.addAttribute("user", userGettersAndSetters);
 	 return "register";
@@ -71,7 +71,7 @@ public class UserController {
  
 
  
- @PostMapping("/register")
+ @PostMapping("/registerPost")
  public String registerSava(@ModelAttribute("user") UserGettersAndSetters userGettersAndSetters, Model model) {
      User user = userService.findByUsername(userGettersAndSetters.getUsername());
     
@@ -82,7 +82,7 @@ public class UserController {
      
      
      userService.save(userGettersAndSetters);
-     return "redirect:/register?success";
+     return "redirect:/registerGet?success=true"; // Append success parameter
  }
 
  

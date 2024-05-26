@@ -19,56 +19,46 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Controller
-public class HospitalDataController {
-
-	  private static final Logger logger = LoggerFactory.getLogger(HospitalDataController.class);
-	  
-    @Autowired
-    private UserService userService;
-
-   
+public class HospitalDataController { 
     
     @Autowired
-    private HospitalDataService hospitalDataService;
+   private HospitalDataService hospitalDataService;
+    
+ // Declare logger
+    private static final Logger logger = LoggerFactory.getLogger(HospitalDataController.class);
 
-    @GetMapping("/addDataGet")
-    public String showAddHospitalDataForm(Model model) {
-        model.addAttribute("hospitalData", new HospitalData());
+    
+    @GetMapping("/addData")
+    public String showAddHospitalDataForm(Model model, HospitalDataGettersAndSetters hospitalDataGettersAndSetters) {
+   	 model.addAttribute("hospitalData", hospitalDataGettersAndSetters);
         return "addHospitalData";
     }
-    @PostMapping("/addDataPost")
+
+    @PostMapping("/addData")
     public String addHospitalData(@ModelAttribute("hospitalData") HospitalDataGettersAndSetters hospitalDataGettersAndSetters,Model model) {
-       
-    	 try {
-             // Get the currently authenticated user
-             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-             User user = userService.findByUsername(userDetails.getUsername());
+    	
+    	try {
+    		
+    		
+    		
+    		
+    	
+    	// Save the hospital data to the database
+        hospitalDataService.save(hospitalDataGettersAndSetters);
 
-             // Convert getters and setter to entity
-             HospitalData hospitalData = new HospitalData();
-             hospitalData.setYear(hospitalDataGettersAndSetters.getYear());
-             hospitalData.setCounty(hospitalDataGettersAndSetters.getCounty());
-             hospitalData.setHospital(hospitalDataGettersAndSetters.getHospital());
-             hospitalData.setSurgery(hospitalDataGettersAndSetters.getSurgery());
-             hospitalData.setCases(hospitalDataGettersAndSetters.getCases());
+        // Redirect with a success parameter
+        return "redirect:/addData?success";
+   
 
-             // Set the user
-             hospitalData.setUser(user);
 
-             // Save the hospital data to the database
-             hospitalDataService.save(hospitalDataGettersAndSetters);
-             
-             // Redirect with a success parameter
-             return "redirect:/addDataGet?success";
-            
-            
-        } catch (Exception e) {
-            // Log the exception (optional)
-            logger.error("Error saving hospital data", e);
-            // Redirect with a failure parameter
-            return "redirect:/addDataGet?failure";
-        }
-       
+   } catch (Exception e) {
+       // Log the exception (optional)
+       logger.error("Error saving hospital data", e);
+       // Redirect with a failure parameter
+       return "redirect:/addData?failure";
+   }
+
+
     }
+
 }
