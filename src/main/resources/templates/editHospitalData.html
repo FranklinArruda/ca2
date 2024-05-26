@@ -15,21 +15,27 @@
             </div>
          </div>
       </header>
+      
       <div class="form-container">
+      
          <h1>Edit Hospital Data</h1>
+      
          <form th:action="@{/hospitaldata/edit/{id}(id=${hospitalData.id})}" th:object="${hospitalData}" method="post">
-
-            <input type="hidden" th:field="*{id}" />
-            <label>Year:</label>
-            <input type="number" th:field="*{year}" />
+             <label>Year:</label>
+            <input type="number" th:field="*{year}" placeholder="Eg. 1975..." />
+            
             <label>County:</label>
-            <input type="text" th:field="*{county}" />
+            <input type="text" th:field="*{county}" placeholder="Location" />
+            
             <label>Hospital:</label>
-            <input type="text" th:field="*{hospital}" />
+            <input type="text" th:field="*{hospital}" placeholder="Hospital Name" />
+            
             <label>Surgery:</label>
-            <input type="text" th:field="*{surgery}" />
+            <input type="text" th:field="*{surgery}" placeholder="Surgery Type"/>
+            
             <label>Cases:</label>
-            <input type="number" th:field="*{cases}" />
+            <input type="number" th:field="*{cases}" placeholder="Eg. 5" />
+            
             <button type="submit">Save</button>
          </form>
       </div>

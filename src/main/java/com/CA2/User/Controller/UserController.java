@@ -52,9 +52,6 @@ private HospitalDataService hospitalDataService;
  }
  
  
-
- 
- 
  @GetMapping("/registerGet")
  public String register(Model model, UserGettersAndSetters userGettersAndSetters) {
 	 model.addAttribute("user", userGettersAndSetters);

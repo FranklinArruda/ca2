@@ -36,39 +36,39 @@
     <!-- Form to add hospital data to database -->
     <form th:action="@{/addData}" method="post" th:object="${hospitalData}">
        
-        <div class="input-coontainer">
+        <div class="input-container">
             <label for="year">Year:</label>
-        <input type="number" id="year" th:field="*{year}">
-        <span th:if="${#fields.hasErrors('year')}" th:errors="*{year}"></span>
+        <input type="number" id="year" th:field="*{year}" placeholder="Eg. 1993...">
+        <span th:if="${#fields.hasErrors('year')}" th:errors="*{year}" ></span>
         </div>
         
         
-        <div class="input-coontainer">
+        <div class="input-container">
             <label for="county">County:</label>
-            <input type="text" id="county" th:field="*{county}">
-            <span th:if="${#fields.hasErrors('county')}" th:errors="*{county}"></span>
+            <input type="text" id="county" th:field="*{county}" placeholder="Location">
+            <span th:if="${#fields.hasErrors('county')}" th:errors="*{county}" ></span>
             
         </div>
        
-         <div class="input-coontainer">
+         <div class="input-container">
               <label for="hospital">Hospital:</label>
-        <input type="text" id="hospital" th:field="*{hospital}">
+        <input type="text" id="hospital" th:field="*{hospital}" placeholder="Hospital Name">
          <span th:if="${#fields.hasErrors('hospital')}" th:errors="*{hospital}"></span>
          </div>
          
       
          
-         <div class="input-coontainer">
+         <div class="input-container">
             <label for="surgery">Surgery:</label>
-        <input type="text" id="surgery" th:field="*{surgery}">
+        <input type="text" id="surgery" th:field="*{surgery}" placeholder="Surgery Type">
          <span th:if="${#fields.hasErrors('surgery')}" th:errors="*{surgery}"></span>
          </div>
         
          
-         <div class="input-coontainer">
+         <div class="input-container">
              <label for="cases">Cases:</label>
-        <input type="number" id="cases" th:field="*{cases}">
-         <span th:if="${#fields.hasErrors('cases')}" th:errors="*{cases}"></span>
+        <input type="number" id="cases" th:field="*{cases}"placeholder="Eg. 7">
+         <span th:if="${#fields.hasErrors('cases')}" th:errors="*{cases}" ></span>
          </div>
         <button type="submit">Add Hospital Data</button>
     </form>
