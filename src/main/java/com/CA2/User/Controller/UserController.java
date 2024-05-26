@@ -3,6 +3,8 @@
 package com.CA2.User.Controller;
 import java.security.Principal;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,13 +14,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+
+
+
 import com.CA2.User.Entity.User;
+import com.CA2.User.Entity.HospitalData;
+import com.CA2.User.Services.HospitalDataService; // import hospital data service to use in the CONTROLLER
 import com.CA2.User.Services.UserService;
 import com.CA2.GettersAndSetters.HospitalDataGettersAndSetters;
 import com.CA2.GettersAndSetters.UserGettersAndSetters;
 
 @Controller
 public class UserController {
+	
+@Autowired
+private HospitalDataService hospitalDataService;
 
  @Autowired
  private UserDetailsService userDetailsService;
@@ -42,34 +52,12 @@ public class UserController {
  }
  
  
- @GetMapping("/login")
- public String login(Model model, UserGettersAndSetters userGettersAdnSetters) {
-	 model.addAttribute("user", userGettersAdnSetters);
-  	return "login";
- }
-  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
  
  
  @GetMapping("/registerGet")
  public String register(Model model, UserGettersAndSetters userGettersAndSetters) {
 	 model.addAttribute("user", userGettersAndSetters);
-	 
-	 
-	 
-	 
 	 return "register";
  }
  
@@ -84,7 +72,6 @@ public class UserController {
          return "register";
      }
      
-     
      userService.save(userGettersAndSetters);
      return "redirect:/registerGet?success=true"; // Append success parameter
  }
@@ -92,12 +79,13 @@ public class UserController {
  
  
  
- 
- 
- 
- 
- 
- 
+
+ @GetMapping("/login")
+ public String login(Model model, UserGettersAndSetters userGettersAdnSetters) {
+	 model.addAttribute("user", userGettersAdnSetters);
+  	return "login";
+ }
+  
  
  
  
@@ -108,20 +96,20 @@ public class UserController {
  
  @GetMapping("/dashboard")
  public String home(Model model, Principal principal) {
-  
-	 //-------------------------------------------------------------------
-	 if (principal == null) {
-	        // Handle case where user is not authenticated (e.g., redirect to login)
-	        return "redirect:/login";
-	    }
-	 
-	 //---------------------------------------------------------------------------------
-	 
-	 UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
-  model.addAttribute("userdetail", userDetails);
-  return "dashboard";
+     if (principal == null) {
+         return "redirect:/login";
+     }
+
+     UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
+     model.addAttribute("userdetail", userDetails);
+
+     
+     
+     // Fetch hospital data from the database
+     List<HospitalData> hospitalDataList = hospitalDataService.findAll();
+     model.addAttribute("hospitalDataList", hospitalDataList);
+
+     return "dashboard";
  }
- 
- 
  
 }
