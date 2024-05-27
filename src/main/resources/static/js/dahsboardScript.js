@@ -7,4 +7,4 @@
   }
 
   // Calling function after 4 seconds (4000 milliseconds)
-    setTimeout(showTableBody, 1500);
+    setTimeout(showTableBody, 1000);
