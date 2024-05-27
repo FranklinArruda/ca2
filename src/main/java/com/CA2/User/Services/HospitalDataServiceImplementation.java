@@ -6,9 +6,16 @@ import com.CA2.User.Repositories.HospitalDataRepository;
 import com.CA2.User.Repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+// import the importsfor pagination
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+
 import org.springframework.stereotype.Service;
 import com.CA2.GettersAndSetters.HospitalDataGettersAndSetters;
 
+//import list
 import java.util.List;
 
 @Service
@@ -22,19 +29,42 @@ public class HospitalDataServiceImplementation implements HospitalDataService {
     	  this.hospitalDataRepository = hospitalDataRepository;
     	 }
     
-    
+    /*
     @Override
     public List<HospitalData> findAll() {
+    	
         return hospitalDataRepository.findAll();
-    }
+    }*/
     
+    // WITH PAGINATION
+    @Override
+    public List<HospitalData> findAll(int offset) {
+    	
+    	/*
+       
+        PAGINATION SORT FROM BIGGEST TO SMALLEST dataset because when I add a new data I can see where it goes right away.
+        
+        (I could add the SEARCH functionality to it)
+        
+        Sort sort = Sort.by(Sort.Direction.DESC, "id");
+        Pageable pageable = PageRequest.of(offset / 20, 20, sort); // PageRequest needs page number, not offset
+        
+        *
+        */
+    	
+    	// Without SORTING but startting from smalllest to biggest
+         Pageable pageable = PageRequest.of(offset / 20, 20);
+        
+        return hospitalDataRepository.findAll(pageable).getContent();
+    }
+
     
 
     @Override
     public HospitalData findById(Long id) {
         return hospitalDataRepository.findById(id).orElse(null);
     }
-
+/*
     @Override
     public HospitalData save(HospitalDataGettersAndSetters hospitalDataGettersAndSetters, User user) {
         HospitalData hospitalData = new HospitalData(
@@ -46,11 +76,12 @@ public class HospitalDataServiceImplementation implements HospitalDataService {
         );
         hospitalData.setUser(user); // Set the user
         return hospitalDataRepository.save(hospitalData);
-    }
+    }*/
     
-   /* 
-    * 
-    	how it was before passing the user ID:
+  
+    
+    
+    //	how it was before passing the user ID:
     	
     	
    @Override
@@ -63,7 +94,7 @@ public class HospitalDataServiceImplementation implements HospitalDataService {
                 hospitalDataGettersAndSetters.getCases()
         );
         return hospitalDataRepository.save(hospitalDT);
-    }*/
+    }
 
 
     @Override

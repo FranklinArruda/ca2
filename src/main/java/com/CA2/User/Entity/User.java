@@ -24,17 +24,24 @@ import jakarta.persistence.Table;
 public class User {
     
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userID")
     private int userID;
 
+	@Column(name = "username",nullable=false)
     private String username;
-    private String password;
+	
+	@Column(name = "password",nullable=false)
+	private String password;
+	
+	@Column(name = "firstName",nullable=false)
     private String firstName;
+	
+	@Column(name = "lastName",nullable=false)
     private String lastName;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<HospitalData> hospitalDataList;
+ //  @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  // private List<HospitalData> hospitalDataList;
 
     // Constructors, getters, and setters
 

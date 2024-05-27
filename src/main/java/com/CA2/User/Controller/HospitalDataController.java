@@ -46,6 +46,10 @@ public class HospitalDataController {
      * in the hospital data method parameter, as well as importing the BindingResult result 
      * 
      * */
+    
+    /*
+     * 
+     * REFERECING THE USER ID
     @PostMapping("/addData")
     public String addHospitalData(@Valid @ModelAttribute("hospitalData") HospitalDataGettersAndSetters hospitalDataGettersAndSetters, BindingResult result, Model model) {
         
@@ -57,7 +61,8 @@ public class HospitalDataController {
         }
 
         try {
-            // Retrieve the currently authenticated user
+          
+        	// Retrieve the currently authenticated user
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             String username = userDetails.getUsername();
@@ -76,8 +81,13 @@ public class HospitalDataController {
             return "redirect:/addData?failure";
         }
     }
-    /*
-     * 
+    
+    */
+    
+    
+    
+   
+    // WITHOUT REFERENCING THE USER ID
      
     @PostMapping("/addData")
     public String addHospitalData(@ModelAttribute("hospitalData") HospitalDataGettersAndSetters hospitalDataGettersAndSetters,Model model) {
@@ -100,7 +110,7 @@ public class HospitalDataController {
 
 
     }
-*/
+
     
     
     

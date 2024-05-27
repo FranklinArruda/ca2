@@ -10,21 +10,102 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.JoinColumn;
 @Entity
-@Table(name = "hospital")
+@Table(name = "hospitaldata")
 public class HospitalData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name="hospital_data_ID")
     private Long id;
 
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @Column (name="year", nullable=false)
     private Long year;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @Column (name="county", nullable=false)
     private String county;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @Column (name="hospital", nullable=false)
     private String hospital;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @Column (name="surgery", nullable=false)
     private String surgery;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @Column (name="cases", nullable=false)
     private Long cases;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_foreign_id", nullable = false)
-    private User user;
+    //@ManyToOne(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "user_foreign_id", nullable = false)
+    
+    //IT REFERENCES THE USER
+    
+    //private User user;
 
     // Constructors, getters, and setters
 
@@ -52,7 +133,7 @@ public class HospitalData {
         this.id = id;
     }
 
-    public Long getYear() {
+    public long getYear() {
         return year;
     }
 
@@ -92,13 +173,16 @@ public class HospitalData {
         this.cases = cases;
     }
 
-    public User getUser() {
-        return user;
-    }
+    
+    // THE USER REFERENCES THE LOGGED IN USER AS FOREIGN KEY ETC
+    
+   // public User getUser() {
+   //     return user;
+   // }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+   // public void setUser(User user) {
+  //      this.user = user;
+  //  }
     
    
     @Override

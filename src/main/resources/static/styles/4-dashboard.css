@@ -144,6 +144,7 @@ a:hover,
   --backgroundColor: #f4f4f4;
   --deleteButton: #a00505; 
   --addButtonColor: #1e6b00;
+  --paginationColor: #252424;
 }
 
 html {
@@ -241,6 +242,7 @@ span a:hover {
   font-size: 25px;
   text-transform: uppercase;
 }
+
 .dashboard-user-container {
   margin-top: 40px;
 }
@@ -301,7 +303,35 @@ table tbody tr td {
   padding: 10px 5px 10px 5px;
   border: 1px solid var(--borderBottom);
   color: var(--textColor);
+  font-size: 12px;
 }
+
+
+/*PAGINATION CONTAINER*/
+.previous-next-container{
+  margin-top: 10px;
+}
+.previous-next-container .previous-button:hover,
+.previous-next-container .next-button:hover{
+  padding: 5px;
+  background-color:var(--paginationColor);
+  color: var(--formBackgroundColor);
+  box-shadow: 2px 2px 10px var(--paginationColor);
+
+}
+
+.previous-next-container .previous-button,
+.previous-next-container .next-button{
+  margin-left: 10px;
+  padding-left: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 5px;
+  background-color: var(--backgroundColor);
+  border: 1px solid var(--paginationColor);
+  color: var(--paginationColor);
+}
+
 
 /*hides tbody and appears after 5 seconds with JS*/
 .table-body {

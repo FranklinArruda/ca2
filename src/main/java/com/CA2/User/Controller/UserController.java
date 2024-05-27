@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
-
+// imports FOR PAGINATION
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.CA2.User.Entity.User;
 import com.CA2.User.Entity.HospitalData;
@@ -90,7 +91,10 @@ private HospitalDataService hospitalDataService;
  
  
  
- 
+ /*
+  * 
+  * with no pagination
+  
  @GetMapping("/dashboard")
  public String home(Model model, Principal principal) {
      if (principal == null) {
@@ -108,5 +112,31 @@ private HospitalDataService hospitalDataService;
 
      return "dashboard";
  }
+ 
+}*/
+ 
+ 
+ @GetMapping("/dashboard")
+ public String home(@RequestParam(defaultValue = "0") int offset, Model model, Principal principal) {
+     if (principal == null) {
+         return "redirect:/login";
+     }
+
+     UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
+     model.addAttribute("userdetail", userDetails);
+
+     List<HospitalData> hospitalDataList = hospitalDataService.findAll(offset);
+
+     // Calculate the next and previous offsets
+     int nextOffset = offset + 20;
+     int previousOffset = Math.max(offset - 20, 0);
+
+     model.addAttribute("nextOffset", nextOffset);
+     model.addAttribute("previousOffset", previousOffset);
+     model.addAttribute("hospitalDataList", hospitalDataList);
+
+     return "dashboard";
+ }
+
  
 }

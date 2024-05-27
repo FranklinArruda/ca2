@@ -32,6 +32,7 @@ public class HospitalDataGettersAndSetters {
 
     @NotNull(message = "Cases is required")
     private Long cases = 0L; // Initialize to 0 or any default value
+    
  // Constructor
     public HospitalDataGettersAndSetters(Long year, String county, String hospital, String surgery, Long cases) {
     	super();
