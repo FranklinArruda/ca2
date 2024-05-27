@@ -144,7 +144,7 @@ a:hover,
   --backgroundColor: #f4f4f4;
   --deleteButton: #a00505; 
   --addButtonColor: #1e6b00;
-  --paginationColor: #252424;
+  --paginationColor: #858585;
 }
 
 html {
@@ -242,21 +242,24 @@ span a:hover {
   font-size: 25px;
   text-transform: uppercase;
 }
-
 .dashboard-user-container {
   margin-top: 40px;
 }
+.welcome-message-container .dashboard-user-name{
+ 
+  background-color: #e7e5e5;
+  transition: 300ms all ease-in-out;
+  border-radius: var(--borderRadius);
+  margin-top: 15px;
+  padding: 5px;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  
 
-.dashboard-user-container h2 {
-  color: var(--textColor);
-  font-size: 15px;
-  text-transform: uppercase;
-  border-bottom: 1px solid var(--borderBottom);
-  padding-bottom: 5px;
 }
 
-/*TABLE-CONTAINER*/
 
+/*TABLE-CONTAINER*/
 .table-container {
   position: relative;
   padding: 15px;
@@ -265,21 +268,21 @@ span a:hover {
   align-items: center;
   text-align: center;
   width: 85%;
-  height: 400px;
+  height: 300px;
   margin: 30px auto;
-  animation: revealWidthHome 1.5s;
+  animation: revealWidthHome 0.5s;
 }
 
 .table-container h1 {
   color: var(--backgroundColor);
   font-size: 25px;
   text-transform: uppercase;
-
   font-size: 16px;
   padding: 5px;
   border-radius: var(--borderRadius);
   letter-spacing: 5px;
   background-color: var(--btnColor);
+  animation: typing 2ms infite;
 }
 
 table {
@@ -306,6 +309,45 @@ table tbody tr td {
   font-size: 12px;
 }
 
+/*hides tbody and appears after 5 seconds with JS*/
+.table-body {
+  display: none;
+  animation: easeOut 1000ms; /* Adjust the duration as needed */
+ 
+}
+
+/*EDIT + DELETEBUTTON*/
+.delete.button{
+  font-size:12px;
+  padding: 5px 15px;
+  margin-left: 10px;
+  border-radius: 5px;
+  font-weight: lighter;
+  border: 1px solid var(--deleteButton);
+  color: var(--deleteButton);
+}
+
+.edit.button{
+  color: var(--btnColor);
+  font-size:12px;
+  padding: 5px 20px;
+  border-radius: 5px;
+  font-weight: lighter;
+  border: 1px solid var(--btnColor);
+  color: var(--btnColor);
+}
+
+.delete.button:hover{
+  color: white; /* This will override the initial color */
+  background-color: var(--deleteButton);
+  box-shadow: 2px 2px 10px var(--deleteButton);
+}
+
+.edit.button:hover{
+  color: white; /* This will override the initial color */
+  background-color: var(--btnColor);
+  box-shadow: 2px 2px 10px var(--btnColor);
+}
 
 /*PAGINATION CONTAINER*/
 .previous-next-container{
@@ -333,47 +375,7 @@ table tbody tr td {
 }
 
 
-/*hides tbody and appears after 5 seconds with JS*/
-.table-body {
-  display: none;
-  animation: easeOut 600ms; /* Adjust the duration as needed */
- 
-}
-
-/*EDIT + DELETEBUTTON*/
-.delete.button{
-  font-size: var(--btnFontSize);
-  padding: 5px 20px;
-  border-radius: 5px;
-  font-weight: lighter;
-  border: 1px solid var(--deleteButton);
-  color: var(--deleteButton);
-}
-
-.edit.button{
-  color: var(--btnColor);
-  font-size: var(--btnFontSize);
-  padding: 5px 20px;
-  border-radius: 5px;
-  font-weight: lighter;
-  border: 1px solid var(--btnColor);
-  color: var(--btnColor);
-}
-
-.delete.button:hover{
-  color: white; /* This will override the initial color */
-  background-color: var(--deleteButton);
-  box-shadow: 2px 2px 10px var(--deleteButton);
-}
-
-.edit.button:hover{
-  color: white; /* This will override the initial color */
-  background-color: var(--btnColor);
-  box-shadow: 2px 2px 10px var(--btnColor);
-}
-
 /*Button add data....*/
-
 .add.button {
   position: absolute;
   margin-top: 20px;
@@ -383,9 +385,8 @@ table tbody tr td {
   border-radius: 5px;
   font-weight: lighter;
   border: 1px solid var(--addButtonColor);
-  color: var(--backgroundColor);
-  background-color:var(--addButtonColor);
-  animation: pulse 2s infinite;
+  color: var(--addButtonColor);
+  
   
 }
 .add.button:hover {
@@ -400,7 +401,7 @@ table tbody tr td {
 .scrollable-table {
   max-height: 400px; /* Adjust the height as needed */
   overflow-y: auto;
-  overflow-x: hidden; /* Prevent horizontal scrolling if not needed */
+  overflow-x:scroll; /* Prevent horizontal scrolling if not needed */
  
 }
 
