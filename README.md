@@ -65,9 +65,9 @@ Successfully implemented a web application to manage hospital data with Thymelea
 
 
 ## Demo Video 
-#### Running the Application:
+`RUNNING THE APPLICATION:`
 
-
+https://github.com/FranklinArruda/ca2/assets/102427836/c682b186-28bf-4228-bc3e-e723a7f01239
 
 
 
